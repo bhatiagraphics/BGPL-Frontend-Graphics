@@ -1,5 +1,4 @@
 # ASP.NET build folders
-bin/
 obj/
 *.pdb
 *.user
