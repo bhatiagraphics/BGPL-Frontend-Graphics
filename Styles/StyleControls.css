@@ -1,0 +1,3979 @@
+﻿.TextBoxLoginInterface:focus, .TextBoxInterfaceLST:focus, .TextBoxReadOnlyInt:focus, .TextBoxCompulsoryInt:focus, .TextBoxLoginInterface:focus, TextBoxCompulsoryIntAutoSearch:focus, .TextBoxInterface:focus,select:focus, textarea:focus {
+    /*  border-color: #B7B7BD;*/
+    outline: none !important;
+    border-color: #66afe9 !important;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6) !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6) !important;
+}
+
+/*
+input:focus, textarea:focus, select:focus 
+{
+    border-color: #B7B7BD;
+    outline: none;
+}
+*/
+
+.Headingseparator
+{
+border-bottom-width: 1px; border-bottom-color: #1279C0; border-bottom-style: solid;
+}
+
+/* Login Page Button
+------------------------------------*/  
+.ButtonInterface_Login
+{
+    border: 1px solid #FAAB41;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 12pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 0px 0px 0px 0px;
+    background: #FAAB41;
+    color: #FFFFFF;
+    height: 40px;
+}
+ 
+.ButtonInterface_Login:hover
+{
+    border: 1px solid #FAAB41;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 12pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 0px 0px 0px 0px;
+    background: #FAAB41;
+    color: #000000;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* No Record Found Band
+----------------------------------------------------------*/
+.NoRecordFoundInterface
+{
+    border: thin groove #EAC661; width: 100%; background-color: #FCC985;
+}
+
+/* BC Details Band
+----------------------------------------------------------*/
+.BCDetailsInterface
+{
+    background-color: #D0D2D3;
+}
+
+/* LST Search Page Spacing Between, Filter and Gride
+----------------------------------------------------------*/
+.SpaceBetween
+{
+    padding-top: 5px;
+}
+.SpaceBetweenUpper
+{
+    padding-top: 14px;
+}
+.LSTFilterSectionInterface
+{
+    width: 100%; 
+    /*background-color: #E6E6E6;*/
+    background-color: #FFFFFF;
+}
+
+
+.dxgvHeader_Moderno,.dxgvHeader_Moderno table
+{
+    color:Black;
+}
+ 
+.dxgvHeaderInterface
+{
+    background: #E0E0E0;
+    font-weight: bold;
+    Color: #333333;
+} 
+ 
+.dxgvFooterInterface
+{
+    background: #E0E0E0;
+} 
+ 
+.dxgvSelectedRow_DevEx td.dxgv
+{
+    Color:#ffffff;
+    background-color:#1279C0;
+    background-image: none;
+}
+ 
+
+
+.dxgvHeader1 {  
+    border-bottom-width: 2px;  
+    border-top-width: 2px;  
+    border-left-width: 2px;  
+    border-right-width: 0px;  
+    background-color: #5D7B9D;  
+    font-size: .7em;  
+    padding: 6px;  
+    border-style: outset;  
+    Border-Color: black;  
+    text-align: center;  
+    font-family: Arial;  
+    font-weight: bold;  
+}  
+    .dxgvHeader1 table {  
+    color: white;  
+}
+    
+    
+/* For Lable
+----------------------------------------------------------*/
+.CalanderImage
+{
+    height: 25px;
+    width: 28px;
+}
+
+.LableInterface
+{
+    font-size: 10pt;
+    color: Black;
+    margin-bottom: 0px;
+    font-family: 'Century Gothic';
+    padding-top: 15px;
+    padding-bottom: 10px;
+    height: 40px;
+    padding-left: 2px;
+}
+
+.LableInterfaceWithLink
+{
+    font-size: 14pt;
+    color: #C0C0C0;
+    margin-bottom: 0px;
+    font-family: 'Century Gothic';
+    cursor: hand;
+    font-weight: bold;
+}
+
+.LableInterfaceWithLink:hover
+{
+    cursor: pointer;
+    cursor: hand;
+    color: #FFCB05;
+}
+
+.ValidationSummaryInterface
+{
+    margin: 0px 0px 6px 0px;
+    border: 1px solid #F5C6CB;
+    border-radius: 4px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 100%;
+    font-weight: bold;
+    padding: 4px 0px 0px 0px;
+    background: #F8D7DA;
+    color: #975057;
+    height: 30px;
+}
+ 
+ 
+/* For All TextBox's Interface
+----------------------------------------------------------*/
+/* For Login Page TextBox
+----------------------------------------------------------*/
+.TextBoxLoginInterface
+{
+    border: 2px solid #CCCCCC;
+    padding: 2px;
+    border-radius: 4px;
+    font-family: 'Century Gothic';
+    font-size: 14px;
+    height: 22px;
+}
+.TextBoxLoginInterface:hover
+{
+    border: 2px solid #FFCB05;
+    padding: 2px;
+    border-radius: 4px;
+}
+       
+/* For TextBox LST Page
+----------------------------------------------------------*/
+.TextBoxInterfaceLST
+{
+    border: 1.5px solid #E1E1E3;
+    border-radius: 2px;
+    padding: 2px;
+    height: 35.5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.TextBoxInterfaceLST:hover
+{
+    /*border: 1.5px solid #B7B7BD;*/
+    border: 1.5px solid #E1E1E3;
+    border-radius: 2px;
+    padding: 2px;
+    height: 35.5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.TextBoxInterfaceLST:Focus
+{
+    border: 1px solid #1279C0;
+    border-radius: 2px;
+    padding: 2px;
+    height: 35.5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+/* For TextBox Entry Form
+----------------------------------------------------------*/
+/* For Readonly TextBox
+----------------------------------------------------------*/
+.TextBoxReadOnlyInt
+{
+    border: 1px solid #ACACAC;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+.TextBoxInterface
+{
+    border: 1px solid #ACACAC;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.TextBoxInterface:hover
+{
+    border: 1px solid #ACACAC;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.TextBoxInterface:focus
+{
+    border: 1px solid #ACACAC;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.TextBoxInterfaceAutoSearch
+{
+    border: 1px solid #ACACAC;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+
+    background: url('../images/icons8-search-50.png') no-repeat;
+    background-position: right center;
+    padding-right: 24px;
+    background-size: 23px 23px;  
+}
+
+/* For Compulsory TextBox
+------------------------------*/
+.TextBoxCompulsoryInt
+{
+    border-style: solid;
+    border-width: 1px 1px 1px 2.5px;
+    border-color: #ACACAC #ACACAC #ACACAC #1279C0;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.TextBoxCompulsoryInt:hover
+{
+    border-style: solid;
+    border-width: 1px 1px 1px 2.5px;
+    border-color: #ACACAC #ACACAC #ACACAC #1279C0;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.TextBoxCompulsoryInt:focus
+{
+    border-style: solid;
+    border-width: 1px 1px 1px 2.5px;
+    border-color: #B7B7BD #B7B7BD #B7B7BD #1279C0;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+.TextBoxCompulsoryIntAutoSearch
+{
+    border-style: solid;
+    border-width: 1px 1px 1px 2.5px;
+    border-color: #ACACAC #ACACAC #ACACAC #1279C0;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+
+    background: url('../images/icons8-search-50.png') no-repeat;
+    background-position: right center;
+    padding-right: 24px;
+    background-size: 23px 23px;    
+}
+.TextBoxCompulsoryIntAutoSearch:focus
+{
+    border-style: solid;
+    border-width: 1px 1px 1px 2.5px;
+    border-color: #B7B7BD #B7B7BD #B7B7BD #1279C0;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+
+    background: url('../images/icons8-search-50.png') no-repeat;
+    background-position: right center;
+    padding-right: 24px;
+    background-size: 23px 23px;    
+}
+
+/* Water Mark to a Textbox
+----------------------------------------------------------*/
+.watermark
+{
+    border: 1px solid #ACACAC;
+    padding: 2px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    font-style: italic;
+    height: 30px;
+}
+.watermarkCompulsory
+{
+    border-style: solid;
+    border-width: 1px 1px 1px 2.5px;
+    border-color: #ACACAC #ACACAC #ACACAC #1279C0;
+    border-radius: 2px;
+    padding: 2px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    font-style: italic;
+    height: 30px;  
+}
+
+/* For All DropDown's Interface
+----------------------------------------------------------*/
+.DropDownInterface
+{
+    border: 1px solid #ACACAC;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.DropDownInterface:hover 
+{
+    border: 1px solid #ACACAC;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.DropDownInterface:focus 
+{
+    border: 1px solid #B7B7BD;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+
+.DropDownInterfacecComp
+{
+    border-style: solid;
+    border-width: 1px 1px 1px 2.5px;
+    border-color: #ACACAC #ACACAC #ACACAC #1279C0;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.DropDownInterfacecComp:hover
+{
+    border-style: solid;
+    border-width: 1px 1px 1px 2.5px;
+    border-color: #ACACAC #ACACAC #ACACAC #1279C0;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.DropDownInterfacecComp:focus
+{
+    border-style: solid;
+    border-width: 1px 1px 1px 2.5px;
+    border-color: #B7B7BD #B7B7BD #B7B7BD #1279C0;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+
+.DropDownInterfaceReadOnly
+{
+    border: 1px solid #ACACAC;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+/* For Data Entry Gride
+----------------------------------------------------------*/       
+.GrideInterLST
+{
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    border: 1.5px groove #B2B2B2;
+    box-shadow: 0 0 5px #B2B2B2;
+    padding: 3px 3px 3px 3px;
+    margin: 3px 3px 3px 3px;
+    border: 1.5px groove #B2B2B2;
+}
+.GrideInterLST th
+{
+    margin: 5px;
+    padding: 4px;
+    font-family: 'Century Gothic';
+    background-color: #E0E0E0;
+    font-size: 10.5pt;
+    color: #333333;
+    font-weight: bold;
+    height: 30px;
+}
+.GrideInterLST td
+{
+    margin: 3px 5px 3px 3px;
+    padding: 3px 5px 3px 3px;
+    font-family: 'Century Gothic';
+    background-color: #FFFFFF;
+    font-size: 10.5pt;
+    color: #333333;
+    font-weight: normal;
+    height: 20px;
+}
+.GrideInterLST .pgr
+{
+    
+}
+.GrideInterLST tr.normal:hover, .GrideInterLST tr.alternate:hover
+{
+    background-color: #E0E0E0;
+    padding: 4px 2px;
+    color: #333333;
+    font-weight: normal;
+    font-family: Century Gothic;
+    font-size: 10.5pt;
+}
+.GrideInterLST .footer
+{
+    background: #B1BDC6;
+}
+.GrideInterfaceFooterLabel
+{
+    color: #000000;
+    font-size: 10.5pt;
+    text-align: right;
+    background-color: #FFFFFF;
+    border: 0px solid #E7E7E9;
+    font-family: 'Century Gothic';
+    padding: 2px;
+    height: 28px;
+}
+
+
+
+/* For Data Gride - TextBox's And Dropdown's
+----------------------------------------------------------*/ 
+.TextBoxGrideReadOnly
+{
+    border: 0px solid #CCCCD0;
+    padding: 2px;
+    height: 25px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    background-color: #FFFFFF;
+}
+
+.TextBoxGrideInterface 
+{
+    border: 0px solid #E7E7E9;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    padding: 2px;
+    height: 28px;
+}
+    
+.TextBoxGrideInterface:hover
+{
+    border: 0px solid #FFCB05;
+    padding: 2px;
+    height: 28px;
+}
+
+.TextBoxGrideInterface:focus
+{
+    border: 0px solid #FFCB05;
+    padding: 2px;
+    height: 28px;
+}
+
+.DropDownGrideInterfaceNormal
+{
+    border: 0px solid #E7E7E9;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    padding: 2px;
+    height: 26px;
+}
+
+.DropDownGrideInterface 
+{
+    border: 0px solid #E7E7E9;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    padding: 2px;
+    height: 26px;
+    min-width: 180px;
+    max-width: 99%;
+}
+
+.DropDownGrideInterface:hover 
+{
+    border: 0px solid #FFCB05;
+    padding: 2px;
+}
+
+
+.TextBoxGrideFotter
+{
+    background-color: #B3C1CD;
+    border: 0px solid #B3C1CD;
+    padding: 0px;
+    height: 17px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.TextBoxNewFotter
+{
+    background-color: #3E4095;
+    border: 0px solid #B3C1CD;
+    padding: 0px;
+    height: 17px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    color: #FFFFFF;
+}
+
+.TextBoxReadOnlyGrideFooter
+{
+    background-color: #D0D2D3;
+    border: 0px solid #D0D2D3;
+    padding: 2px;
+    height: 17px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    color: #000000;
+    font-weight: bold;
+}
+
+.TextBoxReadOnlyGridewatermark
+{
+    border: 0px solid #E7E7E9;
+    padding: 2px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    font-style: italic;
+    height: 28px;
+    color: #808080;
+}
+
+
+/* For Disable TextBox
+----------------------------------------------------------*/
+
+.TextBoxDisable
+{
+    background-color: #d3e0ea;
+    border: 2px solid #d3e0ea;
+    padding: 2px;
+    height: 17px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;    
+}
+ 
+/* For Buttons New
+----------------------------------------------------------*/  
+/* Entry Form Button's
+------------------------------------*/
+.ButtonInterface_Entry {
+    /* border: 1px solid #B7B7BD;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 0px 0px 0px 0px;
+    background: #E8E8E8;
+    color: #000000;
+    height: 40px;*/
+    color: #fff;
+    background-color: #FAAB42;
+    border-color: #FAAB42;
+    width: 90px;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+    .ButtonInterface_Entry:hover {
+        /*  border: 1px solid #B7B7BD;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 0px 0px 0px 0px;
+    background: #1279C0;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;*/
+        width: 90px;
+        color: #fff;
+        background-color: #FAAB42;
+        border-color: #FAAB42;
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: .875rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+    }
+
+.ButtonInterfaceForMenu
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/UserIcon.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu:hover
+{
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/UserIcon.png')left 40px top 2px no-repeat #C0C0C0;
+    color: #666666;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected
+{
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/UserIcon.png')left 40px top 2px no-repeat #C0C0C0;
+    color: #666666;
+    height: 40px;
+}
+
+.ButtonInterface
+{
+    border: 1px solid #7F8A92;
+    padding: 2px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    background: #7F8A92 url('../images/GrideHeader.png') repeat-x 50% top;
+    width: 90px;
+    font-weight: bold;
+}
+
+.ButtonInterface:hover
+{
+    border: 1px solid #FDD000;
+    background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+    padding: 2px;
+}
+
+.ButtonInterface:hover
+{
+    border: 1px solid #FDD000;
+    background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+    padding: 2px;
+}
+
+.ButtonInterfaceNew
+{
+    border: 1px solid #F8CE62;
+    padding: 2px;
+    font-family: 'Century Gothic';
+    font-size: 12px;
+    width: 90px;
+    font-weight: bold;
+}
+
+.ButtonInterfaceNew:hover
+{
+    border: 1px solid #FDD000;
+    background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+    padding: 2px;
+}
+
+.ButtonLikeLink
+{
+    cursor: pointer;
+    cursor: hand;
+     font-size: 14pt;
+     color: #C0C0C0;
+     margin-bottom: 0px;
+     font-family: 'Century Gothic';
+     cursor: hand;
+     font-weight: bold;
+    
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     
+}
+
+.ButtonLikeLink:hover
+{ 
+    cursor: pointer;
+    cursor: hand;
+    color: #FFCB05;
+}
+
+/* For Heading
+----------------------------------------------------------*/
+        
+.HeaderInterface
+{
+    border: 2px solid #85ADCB;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: #E1ECF8;
+}
+
+.EntryHeading
+{
+    background-color: #BDBFC1;    
+}
+
+.SectionHeading
+{
+    background-color: #FFFFFF;
+    height: 35px;
+    vertical-align: middle;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #1279C0;
+}
+
+.SectionHeadingofCollapsePanel
+{
+    background-color: #333333;
+}
+
+ .EntryFormHeadingNew
+{
+    font-family: 'Century Gothic';
+    font-size: 21pt;
+    color: #333333;
+    font-weight: bold;
+} 
+
+ .EntryFormSectionsHeading
+{
+    font-family: 'Century Gothic';
+    font-size: 11pt;
+    color: #333333;
+    font-weight: bold;
+} 
+
+ .DetailBlueBandHeading
+{
+    font-family: 'Century Gothic';
+    font-size: 12pt;
+    color: #FFFFFF;
+} 
+
+
+/* For Table
+----------------------------------------------------------*/
+        
+.TableInterface
+{
+    border: 2px solid #CCCCCC;
+    padding: 2px;
+    border-radius: 5px;
+    width: 352px;
+  
+    -webkit-box-shadow: 8px 8px  #888888,  -8px 0 8px #888888;   
+    -moz-box-shadow: 8px 0 8px #888888,  -8px 0 8px #888888;   
+    box-shadow: 8px 0 10px #888888,  -8px 0 10px #888888;
+    
+ }
+
+.EmptyRow
+{
+    
+}
+
+/* For LST Gride
+----------------------------------------------------------*/       
+
+.GrideInterLSTForDetail th
+{
+    color: #FFFFFF;
+    background: #7F8A92 url('../images/GrideHeader.png') repeat-x top;
+    border-left: solid 1px #525252;
+    font-size: 10pt;
+    height: 25px;
+}
+
+
+.GrideInterLSTForDetail .pgr
+{
+    background: #7F8A92 url('../images/GridePager.png') repeat-x top;
+}
+
+
+.GrideInterLSTForDetail, .GrideInterLSTForDetail td
+{
+   border: 1px solid #C0C0C0;
+}
+
+.GrideInterLSTForDetail tr.normal:hover, .GrideInterLSTForDetail tr.alternate:hover
+{
+    color: #333333;
+    background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+    font-weight: normal;
+    font-family: Century Gothic;
+    font-size: 10pt;
+}
+
+
+/* For Detail Gride
+----------------------------------------------------------*/       
+
+.GrideInterface
+{
+    padding: 2;
+    margin: 0;
+    border: 1px solid #000000;
+    font-family: Century Gothic;
+    font-size: 10pt;
+}
+
+.GrideInterface tr.header
+{
+    color: #FFFFFF;
+    background-color: #4B6C9E;
+    height: 25px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    font-family: Century Gothic;
+    font-size: 10pt;
+}
+
+.GrideInterface tr.normal
+{
+    color: black;
+    background-color: #F7F6F3;
+    height: 25px;
+    vertical-align: middle;
+    text-align: center;
+    font-family: Century Gothic;
+    font-size: 10pt;
+}
+
+.GrideInterface tr.alternate
+{
+    color: black;
+    background-color: #FFFFFF;
+    height: 25px;
+    vertical-align: middle;
+    text-align: center;
+    font-family: Century Gothic;
+    font-size: 10pt;
+}
+
+.GrideInterface tr.normal:hover, .GrideInterface tr.alternate:hover
+{
+    background-color: #B5CDE8;
+    color: black;
+    font-weight: bold;
+    font-family: Century Gothic;
+    font-size: 10pt;
+}
+
+
+
+/*AutoComplete flyout 
+----------------------------------------------------------*/
+
+.autocomplete_completionListElement
+{
+    visibility: hidden;
+    margin: 0px !important;
+    background-color: inherit;
+    color: windowtext;
+    border: buttonshadow;
+    border-width: 1px;
+    border-style: solid;
+    cursor: 'default';
+    overflow: auto;
+    height: 300px;
+    text-align: left;
+    list-style-type: none;
+    font-family: Arial;
+    font-size: small;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2000;
+    float: left;
+    display: block;
+    padding: 0px 0;
+    margin: 2px 0 0 0;
+    list-style: none outside none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: #666666;
+    border-style: solid;
+    border-width: thin 2px 2px 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+
+/* AutoComplete highlighted item */
+
+.autocomplete_highlightedListItem
+{
+    background-color: #B5CDE8;
+    color: black;
+    padding: 1px;
+    font-weight: bold;
+}
+
+/* AutoComplete item */
+
+.autocomplete_listItem 
+{
+	background-color : window;
+	color : windowtext;
+	padding : 1px;
+}
+
+
+
+/* For Image Buttons
+----------------------------------------------------------*/
+        
+.ImageButtonInterface 
+{
+    border: 2px solid #CCCCCC;
+    padding: 2px;
+    -webkit-transform: scale(1,1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1,1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms;
+}
+
+.ImageButtonInterface:hover 
+{
+    border: 2px solid #FFCB05;
+    background: #D3E1F1;
+    padding: 2px;
+    
+    -webkit-transform: scale(1.05,1.07);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1.05,1.07);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms;
+    position: relative;
+    z-index: 99;
+    
+    
+   -webkit-box-shadow: 0px 2px 2px #888888;
+-moz-box-shadow: 0px 2px 2px #888888;
+box-shadow: 0px 2px 2px #888888;
+}
+
+
+
+
+/* Tabe Control Old
+----------------------------------------------------------
+ .MyTabStyle .ajax__tab_header
+{
+    border: 0px solid #999999;
+    font-family: Century Gothic;
+    font-size: 10pt;
+    font-weight: bold;
+    display: block;
+    color: #333333;
+}
+ .MyTabStyle .ajax__tab_header .ajax__tab_outer
+{
+    border-color: #222;
+    color: #222;
+    padding-left: 10px;
+    margin-right: 3px;
+    border: solid 1.5px #d7d7d7;
+    
+}
+.MyTabStyle .ajax__tab_header .ajax__tab_inner
+{
+    border-color: #666;
+    color: #666;
+    padding: 3px 10px 2px 0px;
+}
+        
+.MyTabStyle .ajax__tab_tab
+{
+    height: 13px;
+    width: 80px;
+    padding: 4px;
+    margin: 0;
+    background: url() repeat-x;
+    color: #333333;
+}       
+               
+.MyTabStyle .ajax__tab_hover .ajax__tab_outer
+{
+ background-color : #FFF7CE;
+}
+.MyTabStyle .ajax__tab_hover .ajax__tab_inner
+{
+    color: #fff;
+}
+.MyTabStyle .ajax__tab_active .ajax__tab_outer
+{
+    background-image: url('../images/Gride_Hover.png');
+}
+.MyTabStyle .ajax__tab_active .ajax__tab_inner
+{
+    color: #000;
+    border-color: #333;
+}
+.MyTabStyle .ajax__tab_body
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FFFFFF #999999 #999999 #999999;
+    font-family: Century Gothic;
+    font-size: 10pt;
+    background-color: #fff;
+    color: #999999;
+}*/
+
+
+/* Tabe Control New Grey Theam
+----------------------------------------------------------*/
+ .MyTabStyle .ajax__tab_header
+{
+    border: 0px solid #333333;
+    font-family: Century Gothic;
+    font-size: 11pt;
+    font-weight: bold;
+    display: block;
+    color: #666666;
+}
+ .MyTabStyle .ajax__tab_header .ajax__tab_outer
+{
+    border-color: #222;
+    color: #222;
+    padding-left: 10px;
+    margin-right: 3px;
+    border: solid 1.5px #d7d7d7;
+    
+}
+.MyTabStyle .ajax__tab_header .ajax__tab_inner
+{
+    border-color: #666;
+    color: #666;
+    padding: 3px 10px 2px 0px;
+}
+    
+        
+.MyTabStyle .ajax__tab_tab
+{
+    height: 13px;
+    width: 160px;
+    padding: 4px;
+    margin: 0;
+    background: no-repeat;
+    color: #333333;
+}            
+               
+.MyTabStyle .ajax__tab_hover .ajax__tab_outer
+{
+    background-color: #C0C0C0;
+    color: #666666;
+    font-size: 11pt;
+}
+.MyTabStyle .ajax__tab_hover .ajax__tab_inner
+{
+    color: #fff;
+}
+.MyTabStyle .ajax__tab_active .ajax__tab_outer
+{
+    background-color: #C0C0C0;
+}
+.MyTabStyle .ajax__tab_active .ajax__tab_inner
+{
+    color: #000;
+    border-color: #333;
+}
+.MyTabStyle .ajax__tab_body
+{
+    border-color: #FFFFFF #999999 #999999 #999999;
+    font-family: Century Gothic;
+    font-size: 10pt;
+    background-color: #e5e5e5;
+    color: #999999;
+}
+
+
+ .InfoOnlyPadding
+{
+    padding-top: 10px;
+}
+ .InfoQuestion
+{
+    font-size: 10pt;
+    color: #383838;
+    margin-bottom: 0px;
+    font-family: 'Century Gothic';
+}
+
+
+/* Tabe Control New Grey Theam for P&LTab
+----------------------------------------------------------*/
+ .MyTabStyleEnter .ajax__tab_header
+{
+    border: 0px solid #333333;
+    font-family: Century Gothic;
+    font-size: 11pt;
+    font-weight: bold;
+    display: block;
+    color: #666666;
+}
+ .MyTabStyleEnter .ajax__tab_header .ajax__tab_outer
+{
+    border-color: #222;
+    color: #222;
+    padding-left: 10px;
+    margin-right: 3px;
+    border: solid 1.5px #d7d7d7;
+    
+}
+.MyTabStyleEnter .ajax__tab_header .ajax__tab_inner
+{
+    border-color: #666;
+    color: #666;
+    padding: 3px 10px 2px 0px;
+}
+    
+        
+.MyTabStyleEnter .ajax__tab_tab
+{
+    height: 13px;
+    width: 100px;
+    padding: 4px;
+    margin: 0;
+    background: no-repeat;
+    color: #333333;
+}            
+               
+.MyTabStyleEnter .ajax__tab_hover .ajax__tab_outer
+{
+    background-color: #C0C0C0;
+    color: #666666;
+    font-size: 11pt;
+}
+.MyTabStyleEnter .ajax__tab_hover .ajax__tab_inner
+{
+    color: #fff;
+}
+.MyTabStyleEnter .ajax__tab_active .ajax__tab_outer
+{
+    background-color: #C0C0C0;
+}
+.MyTabStyleEnter .ajax__tab_active .ajax__tab_inner
+{
+    color: #000;
+    border-color: #333;
+}
+.MyTabStyleEnter .ajax__tab_body
+{
+    border-color: #FFFFFF #999999 #999999 #999999;
+    font-family: Century Gothic;
+    font-size: 10pt;
+    background-color: #FFFFFF;
+    color: #999999;
+}
+
+/* Tabe Control For HR
+----------------------------------------------------------*/
+ .MyTabStyleHR .ajax__tab_header
+{
+    border: 0px solid #333333;
+    font-family: Century Gothic;
+    font-size: 11pt;
+    font-weight: bold;
+    display: block;
+    color: #666666;
+}
+ .MyTabStyleHR .ajax__tab_header .ajax__tab_outer
+{
+    border-color: #222;
+    color: #222;
+    padding-left: 10px;
+    margin-right: 3px;
+    border: solid 1.5px #d7d7d7;
+    
+}
+.MyTabStyleHR .ajax__tab_header .ajax__tab_inner
+{
+    border-color: #666;
+    color: #666;
+    padding: 3px 10px 2px 0px;
+}
+    
+        
+.MyTabStyleHR .ajax__tab_tab
+{
+    height: 13px;
+    width: 135px;
+    padding: 4px;
+    margin: 0;
+    background: no-repeat;
+    color: #333333;
+}            
+               
+.MyTabStyleHR .ajax__tab_hover .ajax__tab_outer
+{
+    background-color: #C0C0C0;
+    color: #666666;
+    font-size: 11pt;
+}
+.MyTabStyleHR .ajax__tab_hover .ajax__tab_inner
+{
+    color: #fff;
+}
+.MyTabStyleHR .ajax__tab_active .ajax__tab_outer
+{
+    background-color: #C0C0C0;
+}
+.MyTabStyleHR .ajax__tab_active .ajax__tab_inner
+{
+    color: #000;
+    border-color: #333;
+}
+.MyTabStyleHR .ajax__tab_body
+{
+    border-color: #FFFFFF #999999 #999999 #999999;
+    font-family: Century Gothic;
+    font-size: 10pt;
+    background-color: #F4F4F4;
+    color: #999999;
+}
+
+
+/* Tree View Control
+----------------------------------------------------------*/
+
+   .TreeView .Color
+{
+    color: #666666;
+    padding: 5px;
+    font-weight: lighter;
+}
+
+
+   .TreeView .node
+{
+    border: 1px solid #e5e5e5;
+    color: #666666;
+    padding: 5px;
+}
+      
+    .TreeView .hover
+{
+    border: 1px solid #C0C0C0;
+    background: #C0C0C0 repeat-x top;
+    padding: 5px;
+    color: #666666;
+}
+
+    .TreeView .selectNode
+{
+    border: 1px solid #606062;
+    background: #606062 repeat-x top;
+    padding: 5px;
+    color: #666666;
+}
+
+
+/* Tree View Control Old
+----------------------------------------------------------*/
+
+   .TreeViewOld .Color
+{
+    color: white !important;
+    padding: 5px;
+}
+
+
+   .TreeViewOld .node
+{
+    border: 1px solid #4B4B4D;
+    color: white !important;
+    padding: 5px;
+    font-family: Century Gothic;
+    font-size: 11pt;
+    color: #999999;
+}
+  
+    
+    .TreeViewOld .hover
+    {
+        border: 1px solid #FDD000;
+        background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+        padding: 5px;
+    }
+
+    .TreeViewOld .selectNode
+    {
+        border: 1px solid #FDD000;
+        background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+        padding: 5px;
+    }
+    
+/* Customize Popup
+----------------------------------------------------------*/
+
+.overlayCustompopup
+{
+  position:fixed; 
+  top:0px; 
+  bottom:0px; 
+  left:0px; 
+  right:0px; 
+  overflow:hidden; 
+  padding:0; 
+  margin:0; 
+  background-color: rgba(0, 0, 0, 0.6); 
+  filter:alpha(opacity=50); 
+  opacity: 0.5;
+  z-index: 1000;  
+}
+    
+    .Custompopup
+{
+    border: 2px solid #808080;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+}
+
+
+/* For Read Only Sections(Lable)
+----------------------------------------------------------*/
+.SectionHeadingForReadOnly
+{
+    background-color: #DFDFDF;
+}
+
+.LableInterfaceForHeadingReadOnly
+{
+    font-size: 10pt;
+    color: #808080;
+    margin-bottom: 0px;
+    font-family: arial, Helvetica, sans-serif;
+}
+
+.LableInterfaceForReadOnly
+{
+    font-size: 10pt;
+    color: Black;
+    margin-bottom: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.LableInterfaceForReadOnlyWithLink
+{
+    font-size: 14pt;
+    color: #C0C0C0;
+    margin-bottom: 0px;
+    font-family: 'Century Gothic';
+    cursor: hand;
+    font-weight: bold;
+}
+
+.LableInterfaceForReadOnlyWithLink:hover
+{
+    cursor: pointer;
+    cursor: hand;
+    color: #FFCB05;
+}
+
+/* For Buttons(Menu) New Buttons Wise
+----------------------------------------------------------*/  
+
+.LableInterfaceForMenu
+{
+    font-size: 12pt;
+    color: #666666;
+    margin-bottom: 0px;
+    font-family: 'Century Gothic';
+}
+
+
+.ButtonInterfaceForMenu_Details
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTDetail1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_Details:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTDetail2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_Details
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTDetail2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_Activity
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTActivity1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_Activity:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTActivity2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_Activity
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTActivity2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_Account
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTAccount1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_Account:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTAccount2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_Account
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTAccount2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_Register
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTRegister1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_Register:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTRegister2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_Register
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTRegister2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_MapStatus
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTMapStatus1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_MapStatus:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTMapStatus2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_MapStatus
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTMapStatus2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_ClientKit
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTClientKit1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_ClientKit:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTClientKit2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_ClientKit
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTClientKit2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_RCal
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTRCal1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_RCal:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTRCal2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_RCal
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTRCal2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_ConsMeet
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTConsMeet1.png')left 30px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_ConsMeet:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTConsMeet2.png')left 30px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_ConsMeet
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTConsMeet2.png')left 30px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_TTTracker
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTTTTracker1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_TTTracker:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTTTTracker2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_TTTracker
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTTTTracker2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_Goals
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTGoals1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_Goals:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTGoals2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_Goals
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTGoals2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_MPRRR
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTMPRRR1.png')left 30px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_MPRRR:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTMPRRR2.png')left 30px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_MPRRR
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTMPRRR2.png')left 30px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_YSS
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTYSS1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_YSS:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTYSS2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_YSS
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTYSS2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_PL
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTPL1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_PL:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTPL2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_PL
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTPL2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_WorkCap
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTWorkCap1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_WorkCap:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTWorkCap2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_WorkCap
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTWorkCap2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_CashFlow
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTCashFlow1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_CashFlow:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTCashFlow2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_CashFlow
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTCashFlow2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_Attendance
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTAttendance1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_Attendance:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTAttendance2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_Attendance
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTAttendance2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_Calendar
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTCalendar1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_Calendar:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTCalendar2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_Calendar
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTCalendar2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_Videos
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTVideos1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_Videos:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTVideos2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_Videos
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTVideos2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_ClosureDoc
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTClosureDoc1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_ClosureDoc:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTClosureDoc2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_ClosureDoc
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTClosureDoc2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_Testimonials
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTTestimonials1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_Testimonials:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTTestimonials2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected_Testimonials
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTTestimonials2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+
+/* ------ For HRMS ------------------------------*/  
+.ButtonInterfaceForMenu_HRMSEmpMaster
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTMPRRR1.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRMSEmpMaster:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTMPRRR2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRMSEmpMaster
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/BTMPRRR2.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/ 
+.ButtonInterfaceForMenu_HREmpProfile
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/profile-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HREmpProfile:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/profile-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HREmpProfile
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/profile-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRJD
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/jd-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRJD:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/jd-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRJD
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/jd-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRWhatList
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/whatlist-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRWhatList:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/whatlist-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRWhatList
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/whatlist-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRGoalSheet
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/goalsheet-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRGoalSheet:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/goalsheet-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRGoalSheet
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/goalsheet-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRSalesTarget
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/salestarget-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRSalesTarget:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/salestarget-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRSalesTarget
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/salestarget-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRPersonalGoals
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/personalgoals-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRPersonalGoals:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/personalgoals-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRPersonalGoals
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/personalgoals-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRFastTrack
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/fasttrack-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRFastTrack:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/fasttrack-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRFastTrack
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/fasttrack-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRTraining
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/training-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRTraining:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/training-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRTraining
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/training-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRCoAssets
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/coassets-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRCoAssets:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/coassets-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRCoAssets
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/coassets-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRAppraisal
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/appraisal-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRAppraisal:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/appraisal-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRAppraisal
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/appraisal-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRPIP
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/pip-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRPIP:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/pip-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRPIP
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/pip-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRPIP
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/pip-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRPIP:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/pip-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRPIP
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/pip-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRConfirmation
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/confirmation-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRConfirmation:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/confirmation-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRConfirmation
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/confirmation-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRIncentive
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/incentive-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRIncentive:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/incentive-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRIncentive
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/incentive-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRContest
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/contest-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRContest:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/contest-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRContest
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/contest-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRCalculator
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/calculator-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRCalculator:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/calculator-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRCalculator
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/calculator-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRCalendar
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/calendar-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRCalendar:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/calendar-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRCalendar
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/Calendar-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRTimeAttendance
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/timeattendance-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRTimeAttendance:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/timeattendance-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRTimeAttendance
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/timeattendance-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRLeaveManagement
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/leavemanagement-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRLeaveManagement:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/leavemanagement-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRLeaveManagement
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/leavemanagement-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRSalary
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/salary-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRSalary:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/salary-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRSalary
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/salary-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRIncrementPromotions
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/incrementpromotions-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRIncrementPromotions:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/incrementpromotions-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRIncrementPromotions
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/incrementpromotions-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRLTIP
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/ltip-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRLTIP:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/ltip-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRLTIP
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/ltip-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRReimbursment
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/reimbursment-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRReimbursment:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/reimbursment-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRReimbursment
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/reimbursment-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRTransfer
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/transfer-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRTransfer:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/transfer-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRTransfer
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/transfer-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRBenefits
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/benefits-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRBenefits:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/benefits-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRBenefits
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/benefits-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRITTDS
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/itprojectiontds-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRITTDS:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/itprojectiontds-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRITTDS
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/itprojectiontds-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRFine
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/fine-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRFine:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/fine-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRFine
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/fine-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRTravel
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/travel-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRTravel:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/travel-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRTravel
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/travel-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRGrievance
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/grievance-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRGrievance:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/grievance-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRGrievance
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/grievance-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRHelpdeskRequest
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/helpdeskrequest-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRHelpdeskRequest:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/helpdeskrequest-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRHelpdeskRequest
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/helpdeskrequest-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRMediclaim
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/mediclaim-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRMediclaim:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/mediclaim-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRMediclaim
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/mediclaim-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRResign
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/resign-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRResign:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/resign-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRResign
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/resign-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRExitInerview
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/exitinterview-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRExitInerview:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/exitinterview-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRExitInerview
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/exitinterview-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRHandover
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/handover-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRHandover:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/handover-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRHandover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/handover-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+/* ------------------------------------*/  
+.ButtonInterfaceForMenu_HRFAQ
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/faq-bk.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu_HRFAQ:hover
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/faq-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenu_Selected_HRFAQ
+{
+    border: 1px solid #3e4095;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/HRMS Icons/faq-wt.png')left 40px top 2px no-repeat #3e4095;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

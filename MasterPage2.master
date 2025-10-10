@@ -1,0 +1,741 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage2.master.vb" Inherits="MasterPage2" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WORKFLOW MANAGEMENT</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <%--        <link href="<%=ResolveUrl("CustomCss/style.min.css")%>" rel="stylesheet" />--%>
+
+    <link rel="stylesheet" href="/JS/responsive.dataTables.min.css">
+    <!-- Font Awesome -->
+    <link href="/Style/Style.min.css?1" rel="stylesheet" />
+    <%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">--%>
+    <!-- Ionicons -->
+    <%--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--%>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="themify-icons-font/themify-icons/themify-icons.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/Style/select2.css">
+    <!-- iCheck -->
+
+
+
+
+    <script src="/JS/jquery-3.2.1.min.js"></script>
+    <style>
+        .EntryFormHeadingNew {
+            font-family: 'Century Gothic';
+            font-size: 21pt;
+            color: #333333;
+            font-weight: bold;
+        }
+    </style>
+
+    <style>
+        .table tbody tr:hover {
+            padding: 4px 2px;
+            color: #333333;
+            background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+            font-weight: normal;
+            font-family: Century Gothic;
+            font-size: 10pt;
+            background-size: auto 60px;
+        }
+
+        /* .select2-container {
+            width: 100% !important;
+        }*/
+
+        .ajax__calendar_container th, .ajax__calendar_container td {
+            padding: 0rem !important;
+            vertical-align: middle !important;
+        }
+
+        .dxgvHeaderInterface {
+            background: #E0E0E0;
+            font-weight: bold;
+            Color: #333333;
+        }
+
+        .dxgvSelectedRow_DevEx td.dxgv {
+            Color: #333333;
+            background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+            background-image: none;
+        }
+
+        .devexeditStyle {
+            text-decoration: none !important;
+            color: #FAAB42 !important;
+            font-size: 20px !important;
+        }
+
+            .devexeditStyle span {
+                display: none;
+            }
+
+        .clsReportss {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+
+        .ajax__calendar td {
+            text-align: left;
+            padding: 0px;
+            height: 19px;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 12px;
+            color: #333;
+        }
+
+
+        .ajax__calendar .ajax__calendar_container {
+            background-color: white;
+            border: solid 1px #cccccc;
+        }
+
+        .ajax__calendar .ajax__calendar_header {
+            background-color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .ajax__calendar .ajax__calendar_title, .Calendar .ajax__calendar_next, .Calendar .ajax__calendar_prev {
+            color: black;
+            padding-top: 3px;
+        }
+
+        .ajax__calendar .ajax__calendar_body {
+            background-color: white;
+            border: solid 1px #cccccc;
+        }
+
+        .ajax__calendar .ajax__calendar_dayname {
+            text-align: center;
+            font-weight: bold;
+            /* margin-bottom: 4px;
+            margin-top: 2px;*/
+            height: unset;
+            width: unset;
+        }
+
+        .ajax__calendar .ajax__calendar_day {
+            text-align: center;
+            height: unset;
+            width: unset;
+        }
+
+        .ajax__calendar_dayname {
+        }
+
+        .ajax__calendar .ajax__calendar_hover .ajax__calendar_day, .Calendar .ajax__calendar_hover .ajax__calendar_month, .Calendar .ajax__calendar_hover .ajax__calendar_year, .Calendar .ajax__calendar_active {
+            color: #004080;
+            font-weight: bold;
+            background-color: silver;
+        }
+
+        .ajax__calendar .ajax__calendar_today {
+            font-weight: bold;
+        }
+
+        .ajax__calendar .ajax__calendar_other {
+            color: #bbbbbb;
+        }
+
+        .ajax__calendar .ajax__calendar_hover .ajax__calendar_today, .Calendar .ajax__calendar_hover .ajax__calendar_title {
+            color: Blue;
+        }
+    </style>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="/Font%20Awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="Styles/StyleModalPopup.css" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="skin-default fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">WorkFlow</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <form runat="server">
+        <div id="main-wrapper">
+            <!-- ============================================================== -->
+            <!-- Topbar header - style you can find in pages.scss -->
+            <!-- ============================================================== -->
+            <header class="topbar" style="background: #002d66">
+                <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-header" style="background: #002d66;">
+                        <a class="navbar-brand" href="#">
+                            <!-- Logo icon -->
+                            <b>
+                                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                                <!-- Dark Logo icon -->
+                                <!-- <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" /> -->
+                                <!-- Light Logo icon -->
+                                <img src="/Images/Bhalcon_Logo_trans.png" style="width: 62px" alt="" class="dark-logo" />
+
+
+                            </b>
+                            <!--End Logo icon -->
+                            <!-- Logo text -->
+                            <span>
+                                <!-- dark Logo text -->
+                                <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" /> -->
+                                <!-- Light Logo text -->
+                                <%--<img src="../assets/images/logo-light-text.png" class="light-logo" alt="" />
+                                <img src="/Images/Bhalcon.png" alt="" style="width: 62px" class="light-logo" />--%>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-collapse">
+                        <!-- ============================================================== -->
+                        <!-- toggle and nav items -->
+                        <!-- ============================================================== -->
+                        <ul class="navbar-nav mr-auto">
+                            <!-- This is  -->
+                            <li class="nav-item"><a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu" style="color: white"></i></a></li>
+                            <li class="nav-item"><a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu" style="color: white"></i></a></li>
+                            <!-- ============================================================== -->
+                            <!-- Search -->
+                            <!-- ============================================================== -->
+                            <lable style="color: white; padding: 11px; font-size: 19pt"></lable>
+                        </ul>
+
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <ul class="navbar-nav my-lg-0">
+
+                            <!-- ============================================================== -->
+                            <!-- Comment -->
+                            <!-- ============================================================== -->
+                            <!--<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ti-email"></i>
+                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
+                            <ul>
+                                <li>
+                                    <div class="drop-title">Notifications</div>
+                                </li>
+                                <li>
+                                    <div class="message-center">-->
+                            <!-- Message -->
+                            <!--<a href="javascript:void(0)">
+                            <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                            <div class="mail-contnet">
+                                <h5>Luanch Admin</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span>
+                            </div>
+                        </a>-->
+                            <!-- Message -->
+                            <!--<a href="javascript:void(0)">
+                            <div class="btn btn-success btn-circle"><i class="ti-calendar"></i></div>
+                            <div class="mail-contnet">
+                                <h5>Event today</h5> <span class="mail-desc">Just a reminder that you have event</span> <span class="time">9:10 AM</span>
+                            </div>
+                        </a>-->
+                            <!-- Message -->
+                            <!--<a href="javascript:void(0)">
+                            <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
+                            <div class="mail-contnet">
+                                <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span>
+                            </div>
+                        </a>-->
+                            <!-- Message -->
+                            <!--<a href="javascript:void(0)">
+                                                <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center link" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>-->
+                            <!-- ============================================================== -->
+                            <!-- End Comment -->
+                            <!-- ============================================================== -->
+                            <!-- ============================================================== -->
+                            <!-- Messages -->
+                            <!-- ============================================================== -->
+                            <!--<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-note"></i>
+                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        </a>
+                        <div class="dropdown-menu mailbox dropdown-menu-right animated bounceInDown" aria-labelledby="2">
+                            <ul>
+                                <li>
+                                    <div class="drop-title">You have 4 new messages</div>
+                                </li>
+                                <li>
+                                    <div class="message-center">-->
+                            <!-- Message -->
+                            <!--<a href="javascript:void(0)">
+                            <div class="user-img"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                            <div class="mail-contnet">
+                                <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span>
+                            </div>
+                        </a>-->
+                            <!-- Message -->
+                            <!--<a href="javascript:void(0)">
+                            <div class="user-img"> <img src="../assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
+                            <div class="mail-contnet">
+                                <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span>
+                            </div>
+                        </a>-->
+                            <!-- Message -->
+                            <!--<a href="javascript:void(0)">
+                            <div class="user-img"> <img src="../assets/images/users/3.jpg" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
+                            <div class="mail-contnet">
+                                <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span>
+                            </div>
+                        </a>-->
+                            <!-- Message -->
+                            <!--<a href="javascript:void(0)">
+                                                <div class="user-img"> <img src="../assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center link" href="javascript:void(0);"> <strong>See all e-Mails</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>-->
+                            <!-- ============================================================== -->
+                            <!-- End Messages -->
+                            <!-- ============================================================== -->
+                            <!-- ============================================================== -->
+                            <!-- mega menu -->
+                            <!-- ============================================================== -->
+                            <!--<li class="nav-item dropdown mega-dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-layout-width-default"></i></a>
+                        <div class="dropdown-menu animated bounceInDown">
+                            <ul class="mega-dropdown-menu row">
+                                <li class="col-lg-3 col-xlg-2 m-b-30">
+                                    <h4 class="m-b-20">CAROUSEL</h4>-->
+                            <!-- CAROUSEL -->
+                            <!--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <div class="container"> <img class="d-block img-fluid" src="../assets/images/big/img1.jpg" alt="First slide"></div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="container"><img class="d-block img-fluid" src="../assets/images/big/img2.jpg" alt="Second slide"></div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="container"><img class="d-block img-fluid" src="../assets/images/big/img3.jpg" alt="Third slide"></div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                        </div>-->
+                            <!-- End CAROUSEL -->
+                            <!--</li>
+                        <li class="col-lg-3 m-b-30">
+                            <h4 class="m-b-20">ACCORDION</h4>-->
+                            <!-- Accordian -->
+                            <!--<div class="accordion" id="accordionExample">
+                                <div class="card m-b-0">
+                                    <div class="card-header bg-white p-0" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Collapsible Group Item #1
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-b-0">
+                                    <div class="card-header bg-white p-0" id="headingTwo">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                                    aria-controls="collapseTwo">
+                                                Collapsible Group Item #2
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-b-0">
+                                    <div class="card-header bg-white p-0" id="headingThree">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                                                    aria-controls="collapseThree">
+                                                Collapsible Group Item #3
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-3  m-b-30">
+                            <h4 class="m-b-20">CONTACT US</h4>-->
+                            <!-- Contact -->
+                            <!--<form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Message"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </form>
+                        </li>
+                        <li class="col-lg-3 col-xlg-4 m-b-30">
+                            <h4 class="m-b-20">List style</h4>-->
+                            <!-- List style -->
+                            <!--<ul class="list-style-none">
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> You can give link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Give link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another Give link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Forth link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another fifth link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>-->
+                            <!-- ============================================================== -->
+                            <!-- End mega menu -->
+                            <!-- ============================================================== -->
+
+                            <li class="dropdown user user-menu" style="position: relative; margin-right: 15px;">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <img src="/dist/img/person.png" class="user-image" alt="User Image" style="float: left; width: 25px; height: 25px; border-radius: 50%; margin-right: 10px; margin-top: -2px;">
+                                    <span class="hidden-xs" style="color: white">
+                                        <asp:Label ID="lblLoginDtls" runat="server">  </asp:Label>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu" style="right: 0; left: auto; background-color: #dddada; /* border-top-right-radius: 0; */border-top-left-radius: 0; padding: 1px 5px 0 0; border-top-width: 0; width: 300px;">
+                                    <!-- User image -->
+                                    <li class="user-header" style="height: 156px; padding: 10px; text-align: center; background-color: #002d66;">
+                                        <img src="/dist/img/person.png" class="img-circle" alt="User Image" style="z-index: 5; height: 90px; width: 90px; border: 3px solid; border-color: transparent; border-color: rgba(255,255,255,0.2);">
+                                        <p style="color: white">
+                                            User:
+                                             <asp:Label ID="lblLoginInternal" runat="server"> Admin</asp:Label>
+                                            <small>
+                                                <asp:Label ID="lblDeptDesigName" runat="server"></asp:Label>
+                                            </small>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Body -->
+                                    <li class="user-body" style="padding: 15px; background: white; border-bottom: 1px solid #f4f4f4; border-top: 1px solid #002d66;">
+                                        <div class="col-xs-4 text-center">
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <asp:Label ID="lblDeptName" runat="server"></asp:Label>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer" style="background-color: #f9f9f9; padding: 10px;">
+
+                                     
+
+                                        <div class="row">
+                                            <div class="" style="float: left">
+                                                <!-- <a href="#" class="btn btn-default btn-flat">Profile</a>-->
+                                                <a href="/AdminUtility/CRMChangePassword.aspx" class="btn btn-default btn-flat" style="border: 1px solid #ddd;">Change Password</a>
+                                            </div>
+                                            <div class="pull-right" style="float: right; padding-left: 45px">
+                                                <a href="/LogOut.aspx" style="border: 1px solid #ddd;" class="btn btn-default btn-flat">Log out</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
+
+
+
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- ============================================================== -->
+            <!-- End Topbar header -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Left Sidebar - style you can find in sidebar.scss  -->
+            <!-- ============================================================== -->
+            <%--#222d32--%>
+            <aside class="left-sidebar" style="background: #2e3748">
+                <!-- Sidebar scroll-->
+                <div class="scroll-sidebar">
+
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav" id="menubar" runat="server">
+
+                      <%--  <ul id="sidebarnav">
+
+                            <li>
+                                <a class="waves-effect waves-dark" href="#" aria-expanded="false">
+                                    <i class="icon-speedometer"></i>
+                                    <span class="hide-menu">Home</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="waves-effect waves-dark" href="#" aria-expanded="false">
+                                    <i class="fa fa-share"></i>
+                                    <span class="hide-menu">Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="waves-effect waves-dark" href="/DropDownMasterSetup.aspx" aria-expanded="false">
+                                    <i class="fa fa-gear"></i>
+                                    <span class="hide-menu">Masters</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="waves-effect waves-dark" href="/WorkFlowManagment/OpenJobSearch.aspx" aria-expanded="false">
+                                    <i class="icon-people"></i>
+                                    <span class="hide-menu">Open Job</span>
+                                </a>
+
+                            </li>
+
+                            <li>
+                                <a class="waves-effect waves-dark" href="/WorkFlowManagment/JobEntrySearch.aspx" aria-expanded="false">
+                                    <i class="icon-people"></i>
+                                    <span class="hide-menu">Job Entry</span>
+                                </a>
+
+                            </li>
+
+                            <li>
+                                <a class="waves-effect waves-dark" href="/WorkFlowManagment/OpenJobGrpahicsSearch.aspx" aria-expanded="false">
+                                    <i class="fa fa-bank"></i>
+                                    <span class="hide-menu">Approval Form (Graphics)</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="waves-effect waves-dark" href="/WorkFlowManagment/OpenJobSendToCustomerSearch.aspx" aria-expanded="false">
+                                    <i class="fa fa-calendar-alt"></i>
+                                    <span class="hide-menu">Approval Form (Send To Customer)</span>
+                                </a>
+                            </li>
+
+                      
+
+                             <li>
+                                <a class="waves-effect waves-dark" href="/WorkFlowManagment/PrePressProductionSearch.aspx" aria-expanded="false">
+                                    <i class="fa fa-codepen"></i>
+                                    <span class="hide-menu">Prepress Form Production</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="waves-effect waves-dark" href="/WorkFlowManagment/MaterialProductionSearch.aspx" aria-expanded="false">
+                                    <i class="fa fa-bar-chart"></i>
+                                    <span class="hide-menu">Material Production</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="waves-effect waves-dark" href="/WorkFlowManagment/QCSearch.aspx" aria-expanded="false">
+                                    <i class="fa fa-bar-chart"></i>
+                                    <span class="hide-menu">Material Production QC</span>
+                                </a>
+                            </li>
+
+                             <li>
+                                <a class="waves-effect waves-dark" href="/WorkFlowManagment/BillingFormSearch.aspx" aria-expanded="false">
+                                    <i class="fa fa-inr"></i>
+                                    <span class="hide-menu">Billing</span>
+                                </a>
+                            </li>
+
+                               <li>
+                                <a class="waves-effect waves-dark" href="/WorkFlowManagment/DispatchSearch.aspx" aria-expanded="false">
+                                    <i class="fa fa-user-secret"></i>
+                                    <span class="hide-menu">Dispatch</span>
+                                </a>
+                            </li>
+
+                               <li>
+                                <a class="waves-effect waves-dark" href="/ReportDashBoardSetup.aspx" aria-expanded="false">
+                                    <i class="fa fa-line-chart"></i>
+                                    <span class="hide-menu">Reports</span>
+                                </a>
+                            </li>
+
+                               <li>
+                                <a class="waves-effect waves-dark" href="/AdminSecurityDashboard.aspx" aria-expanded="false">
+                                    <i class="fa fa-user-secret"></i>
+                                    <span class="hide-menu">Admin & Security</span>
+                                </a>
+                            </li>
+
+
+                        </ul>--%>
+                    </nav>
+                    <!-- End Sidebar navigation -->
+                </div>
+                <!-- End Sidebar scroll-->
+            </aside>
+            <!-- ============================================================== -->
+            <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Page wrapper  -->
+            <!-- ============================================================== -->
+            <div class="page-wrapper" id="maincontain" style="overflow: scroll">
+                <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server"
+                    AsyncPostBackTimeout="3600">
+                </asp:ToolkitScriptManager>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+
+
+
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+    </form>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="<%=ResolveUrl("JS/select2.full.min.js")%>"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            jQuery('.DateTime').datepicker({
+                format: 'dd/mm/yyyy',
+                duration: "fast",
+                minDate: "",
+                maxDate: ""
+            }).on('changeDate', function () {
+                $('.datepicker').hide();
+            });
+
+            $('#maincontain').height($(window).height() - 70);
+            //alert($('#maincontain').height())
+
+
+            $(".searchableddl").select2({ dropdownCssClass: 'smalldrop' });
+
+            $(".searchableddl ").filter(".req").each(function () {
+                $(this).siblings(".select2-container").css('border-left', '3px solid red');
+                $(this).siblings(".select2-container").css('border-radius', '4px');
+            });
+
+        });
+        Sys.Application.add_load(function () {
+            jQuery('.DateTime').datepicker({
+                format: 'dd/mm/yyyy',
+                duration: "fast",
+                minDate: "",
+                maxDate: ""
+            }).on('changeDate', function () {
+                $('.datepicker').hide();
+            });;
+
+            $(".searchableddl ").select2({ dropdownCssClass: 'smalldrop' });
+            $(".searchableddl").filter(".req").each(function () {
+                $(this).siblings(".select2-container").css('border-left', '3px solid red');
+                $(this).siblings(".select2-container").css('border-radius', '4px');
+            });
+        });
+
+    </script>
+
+    <script src="<%=ResolveUrl("JS/popper.min.js")%>"></script>
+    <script src="<%=ResolveUrl("JS/bootstrap.min.js")%>"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="<%=ResolveUrl("JS/perfect-scrollbar.jquery.min.js")%>"></script>
+    <!--Wave Effects -->
+    <script src="<%=ResolveUrl("JS/waves.js")%>"></script>
+    <!--Menu sidebar -->
+    <script src="<%=ResolveUrl("JS/sidebarmenu.js")%>"></script>
+    <!--stickey kit -->
+    <script src="<%=ResolveUrl("JS/sticky-kit.min.js")%>"></script>
+    <!-- <script src="JS/jquery.sparkline.min.js"></script> -->
+    <!--Custom JavaScript -->
+    <script src="<%=ResolveUrl("JS/custom.min.js")%>"></script>
+    <script src="<%=ResolveUrl("JS/bootstrap-datepicker.min.js")%>"></script>
+
+    <script src="<%=ResolveUrl("JS/jquery.dataTables.min.js")%>"></script>
+    <script src="<%=ResolveUrl("JS/dataTables.responsive.min.js")%>"></script>
+    <script src="<%=ResolveUrl("JS/CustomJs.js")%>"></script>
+</body>
+</html>

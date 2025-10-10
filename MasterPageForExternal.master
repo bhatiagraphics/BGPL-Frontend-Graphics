@@ -1,0 +1,78 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPageForExternal.master.vb" Inherits="MasterPageForExternal" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="Styles/StyleControls.css" type="text/css" />
+    
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style4
+        {
+            width: 933px;
+        }
+        .style7
+        {
+            width: 280px;
+        }
+        .style8
+        {
+            width: 1568px;
+        }
+    </style>
+</head>
+<body>
+    <form id="Form1" runat="server" style="height: 100%">
+    <div class="page" style="background-position: inherit; width: 100%; height: 100%; background-image: url('/IILDERP/images/LOGIN3.jpg'); background-repeat: inherit; background-attachment: inherit;">
+        <table width="100%">
+   <%--     <tr>
+            <td align="left" class="style8">
+                   
+                    <div class="Loginheader">
+                        <asp:Panel ID="Panel123" runat="server" Height="40px" Width="280px">
+                            &nbsp;</asp:Panel>
+                    </div>
+                   
+            </td>
+        </tr>--%>
+        <tr>
+            <td align="left" class="style8">
+                   
+                        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+                        </asp:ToolkitScriptManager>
+                   
+            </td>
+        </tr>
+        </table>
+        
+        <div style="width: 100%; height: 100%;" >
+<table style="width: 100%;">
+            <tr>
+                <td class="style4">
+                             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="style4">
+                   
+                </td>
+            </tr>
+            <tr>
+                <td class="style4">
+                   
+                    &nbsp;</td>
+            </tr>
+        </table>
+        </div>
+        
+    </div>
+        <div class="footerLogin" align="right">
+    </div>
+    </form>
+</body>
+</html>

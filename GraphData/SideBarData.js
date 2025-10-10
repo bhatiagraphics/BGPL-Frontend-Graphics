@@ -1,0 +1,37 @@
+﻿var dataSource = [{
+    month: "Apr",
+    sale: 1300000
+}, {
+    month: "May",
+    sale: 1100000
+}, {
+    month: "Jun",
+    sale: 1500000
+}, {
+    month: "Jul",
+    sale: 1200000
+}, {
+    month: "Aug",
+    sale: 800000
+}, {
+    month: "Sept",
+    sale: 1500000
+}, {
+    month: "Oct",
+    sale: 1200000
+}, {
+    month: "Nov",
+    sale: 1600000
+}, {
+    month: "Dec",
+    sale: 1900000
+}, {
+    month: "Jan",
+    sale: 1600000
+}, {
+    month: "Feb",
+    sale: 1200000
+}, {
+    month: "Mar",
+    sale: 1100000
+}];

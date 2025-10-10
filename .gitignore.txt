@@ -1,0 +1,31 @@
+# ASP.NET build folders
+bin/
+obj/
+*.pdb
+*.user
+*.suo
+*.cache
+*.log
+*.dbmdl
+*.bak
+*.ldf
+*.mdf
+
+# Publish output
+_publish/
+*.Publish.xml
+
+# Temporary folders
+TempPdf/
+Backup*/
+*.tmp
+*.temp
+
+# System files
+Thumbs.db
+Desktop.ini
+
+# Sensitive files
+appsettings.json
+Web.config
+*.config

@@ -1,0 +1,873 @@
+﻿#header
+{
+    position: fixed;
+    top: 110px;
+    height: 50px;
+    width: 100%;
+    background: #FFFFFF;
+}
+#body{ margin-top: 30px; height: 100%; overflow: auto; }
+
+input:focus
+{
+    border-color: #B7B7BD;
+    outline: none;
+}
+input[TextMode="MultiLine"]:focus
+{
+    border-color: #B7B7BD;
+    outline: none;
+}
+
+/* Login Page Button
+------------------------------------*/  
+.ButtonInterface_Entry
+{
+    border: 1px solid #B7B7BD;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 0px 0px 0px 0px;
+    background: #E8E8E8;
+    color: #000000;
+    height: 40px;
+}
+ 
+.ButtonInterface_Entry:hover
+{
+    border: 1px solid #B7B7BD;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 0px 0px 0px 0px;
+    background: #1279C0;
+    color: #FFFFFF;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* No Record Found Band
+----------------------------------------------------------*/
+.NoRecordFoundInterface
+{
+    border: thin groove #EAC661; width: 100%; background-color: #FCC985;
+}
+
+/* BC Details Band
+----------------------------------------------------------*/
+.BCDetailsInterface
+{
+    background-color: #D0D2D3;
+}
+
+/* LST Search Page Spacing Between Filter and Gride
+----------------------------------------------------------*/
+
+.SpaceBetween
+{
+    padding-top: 5px;
+}
+
+/* For Lable
+----------------------------------------------------------*/
+
+.LableInterfaceNew
+{
+    font-size: 14pt;
+    color: Black;
+    margin-bottom: 0px;
+    font-family: Tahoma;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+.LableInterfaceWithLink
+{
+    font-size: 14pt;
+    color: #C0C0C0;
+    margin-bottom: 0px;
+    font-family: 'Century Gothic';
+    cursor: hand;
+    font-weight: bold;
+}
+
+.LableInterfaceWithLink:hover
+{
+    cursor: pointer;
+    cursor: hand;
+    color: #FFCB05;
+}
+/* For Login Page TextBox
+----------------------------------------------------------*/
+
+.TextBoxLoginInterface
+{
+    border: 2px solid #CCCCCC;
+    padding: 2px;
+    border-radius: 4px;
+    font-family: 'Century Gothic';
+    font-size: 14px;
+    height: 22px;
+}
+.TextBoxLoginInterface:hover
+{
+    border: 2px solid #FFCB05;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+
+/* For TextBox Anil Start
+----------------------------------------------------------*/
+
+/* For Readonly TextBox
+----------------------------------------------------------*/
+
+.TextBoxReadOnlyIntNew
+{
+    border: 1.5px solid #E1E1E3;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+
+/* For Compulsory TextBox
+------------------------------*/
+.TextBoxCompulsoryIntNew
+{
+    border: 1.5px solid #E1E1E3;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+.TextBoxCompulsoryIntNew:hover
+{
+    border: 1.5px solid #B7B7BD;
+    background-color: #FFFFFF;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+
+/* For General (Normal) TextBox
+----------------------------------------------------------*/
+
+.TextBoxInterfaceNew
+{
+    border: 1.5px solid #E1E1E3;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.TextBoxInterfaceNew:hover
+{
+    border: 1.5px solid #B7B7BD;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+.TextBoxInterfaceMultelineNew
+{
+    border: 1px solid #E1E1E3;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.TextBoxInterfaceMultelineNew:hover
+{
+    border: 1px solid #B7B7BD;
+    border-radius: 2px;
+    padding: 2px;
+    height: 30px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+
+
+
+/* Water Mark to a Textbox
+----------------------------------------------------------*/
+.watermarkNew
+{
+    border: 1.5px solid #B2B2B2;
+    padding: 2px;
+    background-color: White;
+    color: #808080;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    font-style: italic;
+    height: 25px;
+}
+      
+/* For Drop Down
+----------------------------------------------------------*/
+
+.DropDownInterfaceNew
+{
+    border: 1.5px solid #C0C0C0;
+    height: 27px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    background-color: #FFFFFF;
+}
+.DropDownInterfaceNew:hover 
+{
+    border: 1.5px solid #B2B2B2;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    background-color: #FFFFFF;
+}
+
+.DropDownInterfacecCompNew
+{
+    background-color: #FFFFFF;
+    border: 1px solid #C0C0C0;
+    height: 25px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.DropDownInterfacecCompNew:hover
+{
+    background-color: #FFFFFF;
+    border: 1px solid #FCC985;
+    height: 25px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+.DropDownInterfacecCompNew:focus
+{
+    background-color: #FFFFFF;
+    border: 1px solid #FCC985;
+    height: 25px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+
+.DropDownInterfaceNewReadOnly
+{
+    background-color: #E9EEF5;
+    border: 1.5px solid #FCC985;
+    height: 25px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+}
+
+/* LST Add Button
+------------------------------------*/  
+.ButtonInterface_Search_AddNew
+{
+    border: 1px solid silver;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+ 
+.ButtonInterface_Search_AddNew:hover
+{
+    border: 1px solid silver;
+    border-radius: 5px;
+    background-color: #C0C0C0;
+}
+
+
+.ButtonInterface_Search_Edit
+{
+    border-radius: 5px;
+}
+ 
+
+/* For LST Gride
+----------------------------------------------------------*/       
+.GrideInterLSTNew
+{
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    border: 1.5px groove #B2B2B2;
+    box-shadow: 0 0 5px #B2B2B2;
+    padding: 3px 3px 3px 3px;
+    margin: 3px 3px 3px 3px;
+    border: 1.5px groove #B2B2B2;
+}
+
+.GrideInterLSTNew th
+{
+    margin: 5px;
+    padding: 4px;
+    font-family: 'Century Gothic';
+    background-color: #E0E0E0;
+    font-size: 10.5pt;
+    color: #333333;
+    font-weight: bold;
+    height: 30px;
+}
+
+.GrideInterLSTNew td
+{
+    margin: 3px 5px 3px 3px;
+    padding: 3px 5px 3px 3px;
+    font-family: 'Century Gothic';
+    background-color: #FFFFFF;
+    font-size: 10.5pt;
+    color: #333333;
+    font-weight: normal;
+    height: 20px;
+}
+
+.GrideInterLSTNew .pgr
+{
+    
+}
+
+.GrideInterLSTNew tr.normal:hover, .GrideInterLSTNew tr.alternate:hover
+{
+    padding: 4px 2px;
+    color: #333333;
+    
+    font-weight: normal;
+    font-family: Century Gothic;
+    font-size: 11pt;
+}
+
+.GrideInterLSTNew .footer
+{
+    background: #B1BDC6;
+}
+
+.GrideInterfaceFooterLabel
+{
+    color: #000000;
+    font-size: 11pt;
+    text-align: right;
+    background-color: #FFFFFF;
+    border: 0px solid #E7E7E9;
+    font-family: 'Century Gothic';
+    padding: 2px;
+    height: 28px;
+}
+
+
+.dxgvSelectedRow_DevEx td.dxgv
+{
+    background-color: #EEEEEE;
+    background-image: none;
+    color: #333333;
+}
+
+
+/* For Detail Gride
+----------------------------------------------------------*/       
+
+.GrideInterfaceNew
+{
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    border: 1px solid #B2B2B2;
+    box-shadow: 0 0 5px #B2B2B2;
+    padding: 3px 3px 3px 3px;
+    margin: 3px 3px 3px 3px
+}
+
+.GrideInterfaceNew tr.header
+{
+    margin: 5px;
+    padding: 4px;
+    font-family: 'Century Gothic';
+    background-color: #E0E0E0;
+    font-size: 10.5pt;
+    color: #333333;
+    font-weight: bold;
+    height: 30px;
+}
+
+.GrideInterfaceNew tr.normal
+{
+    color: black;
+    background-color: #F7F6F3;
+    height: 25px;
+    vertical-align: middle;
+    text-align: center;
+    font-family: Century Gothic;
+    font-size: 10pt;
+}
+
+.GrideInterfaceNew tr.alternate
+{
+    color: black;
+    background-color: #FFFFFF;
+    height: 25px;
+    vertical-align: middle;
+    text-align: center;
+    font-family: Century Gothic;
+    font-size: 10pt;
+}
+
+.GrideInterfaceNew tr.normal:hover, .GrideInterfaceNew tr.alternate:hover
+{
+    background-color: #B5CDE8;
+    color: black;
+    font-weight: bold;
+    font-family: Century Gothic;
+    font-size: 10pt;
+}
+
+
+/* For Gride TextBox And Dropdown
+----------------------------------------------------------*/ 
+.TextBoxGrideInterfaceNew 
+{
+    border: 0px solid #E7E7E9;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    padding: 2px;
+    height: 25px;
+}
+    
+.TextBoxGrideInterfaceNew:hover
+{
+    border: 0px solid #FFCB05;
+    padding: 2px;
+    height: 25px;
+}
+
+.TextBoxGrideInterfaceNew:focus
+{
+    border: 0px solid #FFCB05;
+    padding: 2px;
+    height: 25px;
+}
+
+.DropDownGrideInterfaceNew 
+{
+    border: 0px solid #E7E7E9;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    padding: 2px;
+    height: 26px;
+    min-width: 180px;
+    max-width: 99%;
+}
+
+.DropDownGrideInterfaceNew:hover 
+{
+    border: 0px solid #FFCB05;
+    padding: 2px;
+}
+
+
+.TextBoxGrideFotterNew
+{
+    background-color: #B3C1CD;
+    border: 0px solid #B3C1CD;
+    padding: 0px;
+    height: 17px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.TextBoxNewFotterNew
+{
+    background-color: #3E4095;
+    border: 0px solid #B3C1CD;
+    padding: 0px;
+    height: 17px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    color: #FFFFFF;
+}
+
+.TextBoxGrideReadOnlyNew
+{
+    border: 0px solid #CCCCD0;
+    padding: 2px;
+    height: 25px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    background-color: #FFFFFF;
+}
+
+.TextBoxReadOnlyGrideFooterNew
+{
+    background-color: #D0D2D3;
+    border: 0px solid #D0D2D3;
+    padding: 2px;
+    height: 17px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    color: #000000;
+    font-weight: bold;
+}
+
+.TextBoxReadOnlyGridewatermarkNew
+{
+    border: 0px solid #E7E7E9;
+    padding: 2px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    font-style: italic;
+    height: 25px;
+    color: #808080;
+}
+
+
+/* Anil End
+----------------------------------------------------------*/
+
+/* For Disable TextBox
+----------------------------------------------------------*/
+
+.TextBoxDisableNew
+{
+    background-color: #d3e0ea;
+    border: 2px solid #d3e0ea;
+    padding: 2px;
+    height: 17px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;    
+}
+  
+/* For Buttons New
+----------------------------------------------------------*/  
+.ButtonInterfaceForMenu
+{
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/UserIcon.png')left 40px top 2px no-repeat #e5e5e5;
+    color: #666666;
+    height: 40px;
+}
+ 
+.ButtonInterfaceForMenu:hover
+{
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/UserIcon.png')left 40px top 2px no-repeat #C0C0C0;
+    color: #666666;
+    height: 40px;
+    cursor: pointer;
+}
+
+.ButtonInterfaceForMenuSelected
+{
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    width: 90px;
+    font-weight: bold;
+    padding: 20px 0px 0px 0px;
+    background: url('../images/UserIcon.png')left 40px top 2px no-repeat #C0C0C0;
+    color: #666666;
+    height: 40px;
+}
+
+.ButtonInterface
+{
+    border: 1px solid #7F8A92;
+    padding: 2px;
+    font-family: 'Century Gothic';
+    font-size: 10pt;
+    background: #7F8A92 url('../images/GrideHeader.png') repeat-x 50% top;
+    width: 90px;
+    font-weight: bold;
+}
+
+.ButtonInterface:hover
+{
+    border: 1px solid #FDD000;
+    background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+    padding: 2px;
+}
+
+.ButtonInterface:hover
+{
+    border: 1px solid #FDD000;
+    background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+    padding: 2px;
+}
+
+.ButtonInterfaceNew
+{
+    border: 1px solid #F8CE62;
+    padding: 2px;
+    font-family: 'Century Gothic';
+    font-size: 12px;
+    width: 90px;
+    font-weight: bold;
+}
+
+.ButtonInterfaceNew:hover
+{
+    border: 1px solid #FDD000;
+    background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+    padding: 2px;
+}
+
+.ButtonLikeLink
+{
+    cursor: pointer;
+    cursor: hand;
+     font-size: 14pt;
+     color: #C0C0C0;
+     margin-bottom: 0px;
+     font-family: 'Century Gothic';
+     cursor: hand;
+     font-weight: bold;
+    
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     
+}
+
+.ButtonLikeLink:hover
+{ 
+    cursor: pointer;
+    cursor: hand;
+    color: #FFCB05;
+}
+
+/* For Heading
+----------------------------------------------------------*/
+        
+.HeaderInterface
+{
+    border: 2px solid #85ADCB;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: #E1ECF8;
+}
+
+.EntryHeading
+{
+    background-color: #BDBFC1;    
+}
+
+.SectionHeadingNew
+{
+    background-color: #FFFFFF;
+}
+
+ .EntryFormHeadingNew
+{
+    font-family: 'Century Gothic';
+    font-size: 21pt;
+    color: #333333;
+    font-weight: bold;
+} 
+
+ .DetailBlueBandHeading
+{
+    font-family: 'Century Gothic';
+    font-size: 12pt;
+    color: #FFFFFF;
+} 
+
+
+/* For Table
+----------------------------------------------------------*/
+        
+.TableInterface
+{
+    border: 2px solid #CCCCCC;
+    padding: 2px;
+    border-radius: 5px;
+    width: 352px;
+  
+    -webkit-box-shadow: 8px 8px  #888888,  -8px 0 8px #888888;   
+    -moz-box-shadow: 8px 0 8px #888888,  -8px 0 8px #888888;   
+    box-shadow: 8px 0 10px #888888,  -8px 0 10px #888888;
+    
+ }
+
+.EmptyRow
+{
+    
+}
+
+
+/*AutoComplete flyout 
+----------------------------------------------------------*/
+
+.autocomplete_completionListElement
+{
+    visibility: hidden;
+    margin: 0px !important;
+    background-color: inherit;
+    color: windowtext;
+    border: buttonshadow;
+    border-width: 1px;
+    border-style: solid;
+    cursor: 'default';
+    overflow: auto;
+    height: 300px;
+    text-align: left;
+    list-style-type: none;
+    font-family: Arial;
+    font-size: small;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2000;
+    float: left;
+    display: block;
+    padding: 0px 0;
+    margin: 2px 0 0 0;
+    list-style: none outside none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: #666666;
+    border-style: solid;
+    border-width: thin 2px 2px 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+
+/* AutoComplete highlighted item */
+
+.autocomplete_highlightedListItem
+{
+    background-color: #B5CDE8;
+    color: black;
+    padding: 1px;
+    font-weight: bold;
+}
+
+/* AutoComplete item */
+
+.autocomplete_listItem 
+{
+	background-color : window;
+	color : windowtext;
+	padding : 1px;
+}
+
+
+
+/* For Image Buttons
+----------------------------------------------------------*/
+        
+.ImageButtonInterface 
+{
+    border: 2px solid #CCCCCC;
+    padding: 2px;
+    -webkit-transform: scale(1,1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1,1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms;
+}
+
+.ImageButtonInterface:hover 
+{
+    border: 2px solid #FFCB05;
+    background: #D3E1F1;
+    padding: 2px;
+    
+    -webkit-transform: scale(1.05,1.07);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1.05,1.07);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms;
+    position: relative;
+    z-index: 99;
+    
+    
+   -webkit-box-shadow: 0px 2px 2px #888888;
+-moz-box-shadow: 0px 2px 2px #888888;
+box-shadow: 0px 2px 2px #888888;
+}
+
+
+/* For Read Only Sections(Lable)
+----------------------------------------------------------*/
+.SectionHeadingForReadOnly
+{
+    background-color: #DFDFDF;
+}
+
+.LableInterfaceForHeadingReadOnly
+{
+    font-size: 10pt;
+    color: #808080;
+    margin-bottom: 0px;
+    font-family: arial, Helvetica, sans-serif;
+}
+
+.LableInterfaceForReadOnly
+{
+    font-size: 10pt;
+    color: Black;
+    margin-bottom: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.LableInterfaceForReadOnlyWithLink
+{
+    font-size: 14pt;
+    color: #C0C0C0;
+    margin-bottom: 0px;
+    font-family: 'Century Gothic';
+    cursor: hand;
+    font-weight: bold;
+}
+
+.LableInterfaceForReadOnlyWithLink:hover
+{
+    cursor: pointer;
+    cursor: hand;
+    color: #FFCB05;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

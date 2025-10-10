@@ -1,0 +1,308 @@
+﻿.page-titles {
+    background: #fff;
+    padding: 14px 10px;
+    margin: 0 -25px 25px -25px
+}
+
+    .page-titles h4 {
+        font-size: 21pt;
+        margin-bottom: 0;
+        margin-top: 0
+    }
+
+    .page-titles .breadcrumb {
+        padding: 0;
+        margin: 0;
+        background: 0 0;
+        font-size: 12px
+    }
+
+        .page-titles .breadcrumb li a {
+            color: #212529
+        }
+
+        .page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+            content: "\e649";
+            font-family: themify;
+            color: #ced4da;
+            font-size: 11px
+        }
+
+        .page-titles .breadcrumb .breadcrumb-item.active {
+            color: #fb9678;
+            font-weight: 500
+        }
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: 0
+}
+
+    .card > hr {
+        margin-right: 0;
+        margin-left: 0
+    }
+
+    .card > .list-group {
+        border-top: inherit;
+        border-bottom: inherit
+    }
+
+        .card > .list-group:first-child {
+            border-top-width: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0
+        }
+
+        .card > .list-group:last-child {
+            border-bottom-width: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0
+        }
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem
+}
+
+.card-title {
+    margin-bottom: .75rem
+}
+
+.card-subtitle {
+    margin-top: -.375rem;
+    margin-bottom: 0
+}
+
+.card-text:last-child {
+    margin-bottom: 0
+}
+
+.card-link:hover {
+    text-decoration: none
+}
+
+.card-link + .card-link {
+    margin-left: 1.25rem
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 0 solid transparent
+}
+
+    .card-header:first-child {
+        border-radius: 0
+    }
+
+    .card-header + .list-group .list-group-item:first-child {
+        border-top: 0
+    }
+
+.card-footer {
+    padding: .75rem 1.25rem;
+    background-color: rgba(0,0,0,.03);
+    border-top: 0 solid transparent
+}
+
+    .card-footer:last-child {
+        border-radius: 0
+    }
+
+.card-header-tabs {
+    margin-right: -.625rem;
+    margin-bottom: -.75rem;
+    margin-left: -.625rem;
+    border-bottom: 0
+}
+
+.card-header-pills {
+    margin-right: -.625rem;
+    margin-left: -.625rem
+}
+
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1.25rem
+}
+
+.card-img, .card-img-bottom, .card-img-top {
+    flex-shrink: 0;
+    width: 100%
+}
+
+.card-img, .card-img-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+}
+
+.card-img, .card-img-bottom {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+.card-deck .card {
+    margin-bottom: 10px
+}
+
+@media (min-width:576px) {
+    .card-deck {
+        display: flex;
+        flex-flow: row wrap;
+        margin-right: -10px;
+        margin-left: -10px
+    }
+
+        .card-deck .card {
+            flex: 1 0 0%;
+            margin-right: 10px;
+            margin-bottom: 0;
+            margin-left: 10px
+        }
+}
+
+.card-group > .card {
+    margin-bottom: 10px
+}
+
+@media (min-width:576px) {
+    .card-group {
+        display: flex;
+        flex-flow: row wrap
+    }
+
+        .card-group > .card {
+            flex: 1 0 0%;
+            margin-bottom: 0
+        }
+
+            .card-group > .card + .card {
+                margin-left: 0;
+                border-left: 0
+            }
+
+            .card-group > .card:not(:last-child) {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0
+            }
+
+                .card-group > .card:not(:last-child) .card-header, .card-group > .card:not(:last-child) .card-img-top {
+                    border-top-right-radius: 0
+                }
+
+                .card-group > .card:not(:last-child) .card-footer, .card-group > .card:not(:last-child) .card-img-bottom {
+                    border-bottom-right-radius: 0
+                }
+
+            .card-group > .card:not(:first-child) {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0
+            }
+
+                .card-group > .card:not(:first-child) .card-header, .card-group > .card:not(:first-child) .card-img-top {
+                    border-top-left-radius: 0
+                }
+
+                .card-group > .card:not(:first-child) .card-footer, .card-group > .card:not(:first-child) .card-img-bottom {
+                    border-bottom-left-radius: 0
+                }
+}
+
+.card-columns .card {
+    margin-bottom: .75rem
+}
+
+@media (min-width:576px) {
+    .card-columns {
+        column-count: 3;
+        column-gap: 1.25rem;
+        orphans: 1;
+        widows: 1
+    }
+
+        .card-columns .card {
+            display: inline-block;
+            width: 100%
+        }
+}
+
+.accordion > .card {
+    overflow: hidden
+}
+
+    .accordion > .card:not(:last-of-type) {
+        border-bottom: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0
+    }
+
+    .accordion > .card:not(:first-of-type) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0
+    }
+
+    .accordion > .card > .card-header {
+        border-radius: 0;
+        margin-bottom: 0
+    }
+
+
+.form-horizontal label {
+    margin-bottom: 0
+}
+
+.form-group {
+    margin-bottom: 1rem
+}
+
+
+.form-control {
+    /*color: #212529;*/
+    /* min-height: 38px;*/
+    display: initial
+}
+
+.form-control-sm {
+    min-height: 20px
+}
+
+.form-control:disabled, .form-control[readonly] {
+    opacity: .7
+}
+
+.form-material .form-control {
+    background-color: rgba(0,0,0,0);
+    background-position: center bottom,center calc(100% - 1px);
+    background-repeat: no-repeat;
+    background-size: 0 2px,100% 1px;
+    padding: 0;
+    transition: background 0s ease-out 0s
+}
+
+    .form-material .form-control, .form-material .form-control.focus, .form-material .form-control:focus {
+        background-image: linear-gradient(#fb9678,#fb9678),linear-gradient(#e9ecef,#e9ecef);
+        border: 0 none;
+        border-radius: 0;
+        box-shadow: none;
+        float: none
+    }
+
+        .form-material .form-control.focus, .form-material .form-control:focus {
+            background-size: 100% 2px,100% 1px;
+            outline: 0 none;
+            transition-duration: .3s
+        }

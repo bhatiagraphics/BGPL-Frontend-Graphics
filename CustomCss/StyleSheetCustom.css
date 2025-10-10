@@ -1,0 +1,84 @@
+﻿
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    padding: 0 25px
+}
+
+.page-titles {
+    background: #fff;
+    padding: 14px 10px;
+    
+}
+
+    .page-titles h4 {
+        font-size: 21pt;
+        margin-bottom: 0;
+        margin-top: 0
+    }
+
+    .page-titles .breadcrumb {
+        padding: 0;
+        margin: 0;
+        background: 0 0;
+        font-size: 12px
+    }
+
+        .page-titles .breadcrumb li a {
+            color: #212529
+        }
+
+        .page-titles .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+            content: "\e649";
+            font-family: themify;
+            color: #ced4da;
+            font-size: 11px
+        }
+
+        .page-titles .breadcrumb .breadcrumb-item.active {
+            color: #fb9678;
+            font-weight: 500
+        }
+
+
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: 0;
+    margin:15px
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem
+}
+
+.card .card-subtitle {
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: #6c757d
+}
+
+.card .card-title {
+    position: relative;
+    font-weight: 500
+}
+
+.card .card-actions {
+    float: right
+}
+
+    .card .card-actions a {
+        padding: 0 5px;
+        cursor: pointer
+    }
+
+.h5, h5 {
+    font-size: 1rem
+}

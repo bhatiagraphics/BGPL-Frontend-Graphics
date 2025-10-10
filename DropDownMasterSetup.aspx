@@ -1,0 +1,520 @@
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterPage2.master" AutoEventWireup="false"
+    CodeFile="DropDownMasterSetup.aspx.vb" Inherits="DropDownMasterSetup" %>
+
+    <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+    
+
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+
+    <style type="text/css">
+        .auto-style2 {
+            height: 22px;
+        }
+        .auto-style3 {
+            height: 18px;
+        }
+    </style>
+
+</asp:Content>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+      <div class="container-fluid">
+        <div class="col-12">
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h4 class="text-themecolor">Masters</h4>
+                </div>
+                <div class="col-md-7 align-self-center text-right">
+                    <div class="d-flex justify-content-end align-items-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div align="center" style="height: 100%; width: 100%; padding-left: 5px; padding-right: 5px;">
+        <asp:Panel ID="Panel2" runat="server" Height="100%" Width="100%" BackColor="White">
+            <table style="width: 100%; height: 100%;">
+               
+                <tr>
+                    <td align="center">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <table style="width: 50%;">
+                            <tr>
+                                <td align="left">
+                                    <asp:Label ID="Label685" runat="server" CssClass="EntryFormHeadingNew" 
+                                        Font-Bold="False" Font-Size="13pt" Text="Master" Width="300px"></asp:Label>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    <asp:Label ID="Label712" runat="server" CssClass="EntryFormHeadingNew" 
+                                        Font-Bold="False" Font-Size="13pt" Width="300px"></asp:Label>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    <asp:Label ID="Label713" runat="server" CssClass="EntryFormHeadingNew" 
+                                        Font-Bold="False" Font-Size="13pt" Width="300px"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="auto-style2">
+                                    </td>
+                                <td class="auto-style2">
+                                    </td>
+                                <td class="auto-style2">
+                                    </td>
+                                <td class="auto-style2">
+                                    </td>
+                                <td align="left" class="auto-style2">
+                                    </td>
+                                <td class="auto-style2">
+                                    </td>
+                                <td class="auto-style2">
+                                    </td>
+                                <td class="auto-style2">
+                                    </td>
+                                <td align="left" class="auto-style2">
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <asp:HyperLink ID="HyperLink22" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; Customer Master</asp:HyperLink>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    <asp:HyperLink ID="HyperLink6130" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; Printing Master</asp:HyperLink>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td align="left">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="auto-style3">
+                                    <asp:HyperLink ID="HyperLink9" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; City</asp:HyperLink>
+                                    </td>
+                                <td class="auto-style3">
+                                    </td>
+                                <td class="auto-style3">
+                                    </td>
+                                <td class="auto-style3">
+                                    </td>
+                                <td align="left" class="auto-style3">
+                                    <asp:HyperLink ID="HyperLink6131" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; Printer Master</asp:HyperLink>
+                                    </td>
+                                <td class="auto-style3">
+                                    </td>
+                                <td class="auto-style3">
+                                    </td>
+                                <td class="auto-style3">
+                                    </td>
+                                <td align="left" class="auto-style3">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td align="left">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <asp:HyperLink ID="HyperLink6123" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; State</asp:HyperLink>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    <asp:HyperLink ID="HyperLink6133" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; Plate Type</asp:HyperLink>
+                                    
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td align="left">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <asp:HyperLink ID="HyperLink6" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; Country</asp:HyperLink>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    <asp:HyperLink ID="HyperLink6134" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; Operator</asp:HyperLink>
+
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td align="left">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; Company</asp:HyperLink>
+
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    <asp:HyperLink ID="HyperLink6135" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; Transport / Courier</asp:HyperLink>
+
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td align="left">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="EntryFormHeadingNew" Font-Bold="False" Font-Size="10pt" Font-Underline="False" ForeColor="#609ED2">&gt; Rate List</asp:HyperLink>
+                                    
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="60px">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td align="left">
+                                    &nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" class="Headingseparator">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="left" class="style158">
+                        &nbsp;</td>
+                </tr>
+            </table>
+        </asp:Panel>
+    </div>
+          </div>
+    </asp:Content>

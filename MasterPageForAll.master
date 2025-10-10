@@ -1,0 +1,509 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeFile="MasterPageForAll.master.vb" Inherits="MasterPageForAll" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <title>NAVYUG ERP</title>
+    <!-- Start css3menu.com HEAD section -->
+    <link rel="stylesheet" href="AGPLMenu.css3prj_files/css3menu1/style.css" type="text/css" />
+
+    <style type="text/css">
+        ._css3m {
+            display: none
+        }
+
+        .TreeView {
+        }
+
+        .divHeader {
+            height: 123px;
+        }
+
+        .style7 {
+            width: 88%;
+        }
+
+
+
+
+        .sidebarrStyle {
+            min-width: 50px;
+            max-width: 50px;
+            background: #4B4B4D;
+            color: #000000;
+            transition: all 0.3s;
+        }
+
+
+
+
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #E5E5E5;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #000000;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                color: #000000;
+                margin-left: 50px;
+            }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 0px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+
+        #mySearch {
+            width: 100%;
+            font-size: 18px;
+            padding: 11px;
+            border: 1px solid #ddd;
+        }
+
+
+        .pageloader {
+            position: fixed;
+            z-index: 999;
+            height: 2em;
+            width: 2em;
+            overflow: visible;
+            margin-top: 27%;
+            margin-left: 42%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+            /* Transparent Overlay */
+            .pageloader:before {
+                content: '';
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                /*    background-color: rgba(0,0,0,0.3);*/
+            }
+
+            /* :not(:required) hides these rules from IE9 and below */
+            .pageloader:not(:required) {
+                /* hide "loading..." text */
+                font: rgb(60 141 188);
+                color: transparent;
+                text-shadow: none;
+                background-color: transparent;
+                border: 0;
+            }
+
+                .pageloader:not(:required):after {
+                    content: '';
+                    display: block;
+                    font-size: 10px;
+                    width: 1em;
+                    height: 1em;
+                    margin-top: -0.5em;
+                    -webkit-animation: spinner 1500ms infinite linear;
+                    -moz-animation: spinner 1500ms infinite linear;
+                    -ms-animation: spinner 1500ms infinite linear;
+                    -o-animation: spinner 1500ms infinite linear;
+                    animation: spinner 1500ms infinite linear;
+                    border-radius: 0.5em;
+                    -webkit-box-shadow: #FAAB41 1.5em 0 0 0, #FAAB41 1.1em 1.1em 0 0, #FAAB41 0 1.5em 0 0, #FAAB41 -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, #FAAB41 0 -1.5em 0 0, #FAAB41 1.1em -1.1em 0 0;
+                    box-shadow: #FAAB41 1.5em 0 0 0, #FAAB41 1.1em 1.1em 0 0, #FAAB41 0 1.5em 0 0, #FAAB41 -1.1em 1.1em 0 0, #FAAB41 -1.5em 0 0 0, #FAAB41 -1.1em -1.1em 0 0, #FAAB41 0 -1.5em 0 0, #FAAB41 1.1em -1.1em 0 0;
+                }
+
+        /* Animation */
+
+        @-webkit-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-o-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .popupMaster {
+            top: 40% !important;
+        }
+
+        .dxic {
+            height:25px;
+        }
+    </style>
+    <!-- End css3menu.com HEAD section -->
+
+    <link rel="stylesheet" href="Styles/Site.css" type="text/css" />
+    <link rel="stylesheet" href="Styles/StyleControls.css?1" type="text/css" />
+    <link rel="stylesheet" href="Styles/StyleModalPopup.css" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <link href="Styles_Menu/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Styles_Menu/style.css" rel="stylesheet" type="text/css" />
+    <script src="Styles_Menu/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <script src="Styles_Menu/bootstrap.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("mySearch").value = "";
+            myFunction();
+        }
+    </script>
+    <script type="text/javascript">
+        function myFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("mySearch");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("navlist");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+        a:link, a:visited {
+            color: #FFFFFF;
+        }
+
+        .main_menu, .main_menu:hover {
+            width: 90px;
+            background-color: #4B4B4D;
+            color: #ffffff;
+            text-align: center;
+            height: 15px;
+            line-height: 15px;
+            margin-right: 5px;
+        }
+
+            .main_menu:hover {
+                background-color: #4B4B4D;
+            }
+
+        .level_menu, .level_menu:hover {
+            width: 90px;
+            background-color: #4B4B4D;
+            text-align: center;
+            height: 15px;
+            line-height: 15px;
+            margin-top: 5px;
+        }
+
+            .level_menu:hover {
+                background-color: #4B4B4D;
+            }
+
+        .selected, .selected:hover {
+            background-color: #4B4B4D !important;
+        }
+
+        .level2 {
+            background-color: #4B4B4D;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form id="Form1" runat="server" autocomplete="random12333">
+        <div id="loader" class="pageloader" style="display: none"></div>
+        <div id="main">
+            <div style="width: 100%">
+                <table style="width: 100%">
+
+                    <tr>
+                        <td colspan="2">
+                            <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server"
+                                AsyncPostBackTimeout="3600">
+                            </asp:ToolkitScriptManager>
+                            <table style="width: 99%;" align="center">
+                                <tr>
+                                    <td style="width: 100%; vertical-align: top;">
+
+                                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </td>
+
+                                    <td>
+
+                                        <asp:Label ID="Label1" runat="server" ForeColor="White" Height="750px" Text="." Width="1px"></asp:Label>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                          
+                                        <asp:Button ID="btnresetpage" runat="server" CssClass="ButtonInterface_Entry"
+                                            Font-Bold="False" Height="31px" Style="display: none" Text="Delete"
+                                            ValidationGroup="SV" Width="85px" />
+                                                                
+                                    </td>
+                                    <td>
+                                          
+                                        &nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <%--<div class="footer" align="right">
+        <table align="right">
+            <tr>
+                <td align="right">
+                    <asp:Image ID="Image1" runat="server" Height="49px" 
+                        ImageUrl="~/images/logo 2.png" Width="58px" ImageAlign="Right" 
+                        Visible="False" />
+                </td>
+                <td align="right">
+                    &nbsp;</td>
+                <td align="right" height="55px" style="vertical-align: middle">
+                    <asp:UpdatePanel ID="UpdatePanel41" runat="server">
+                        <ContentTemplate>
+                            <asp:Label ID="Label6" runat="server" Font-Bold="False" 
+                                Font-Names="Century Gothic" Font-Size="12pt" ForeColor="White" 
+                                Text="RAUT ENGINEERING PVT LTD" Width="100%"></asp:Label>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </td>
+                <td align="right">
+                    &nbsp;</td>
+            </tr>
+        </table>
+    </div>--%>
+    </form>
+
+    <script src="<%=ResolveUrl("~/plugins/jQuery/jQuery-2.1.4.min.js")%>"></script>
+    <link href="<%=ResolveUrl("~/plugins/select2/select2.min.css")%>" rel="stylesheet" />
+    
+    <script src="<%=ResolveUrl("~/plugins/select2/select2.min.js")%>"></script>
+    <script>
+        function pageLoad() {
+
+            $(document).ready(function () {
+                $("select").select2();
+            });
+
+
+            if ($(document).height() > $(window).height()) {
+
+                window.document.body.style.overflow = "hidden";
+                window.document.body.style.overflowX = "scroll";
+
+                var iframe = window.parent.document.getElementById("iframeView");
+
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+
+            }
+            else {
+                //window.parent.document.body.style.overflow = "scroll";
+            }
+
+            //window.parent.refreshpage()
+        }
+
+        $(".SectionHeadingofCollapsePanel").on("click", function () {
+            <%--document.getElementById("<%=btnresetpage.ClientID %>").click();--%>
+        });
+
+        $(document).on("click touchend", ".SectionHeadingofCollapsePanel", function () {
+            document.getElementById("<%=btnresetpage.ClientID %>").click();
+        });
+
+
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                //document.querySelector(
+                //    "body").style.visibility = "hidden";
+                document.querySelector(
+                    "#loader").style.visibility = "none";
+                window.parent.document.getElementById("loader").style.visibility = "visible";
+
+            } else {
+
+                // $("#loader").hide();
+
+                document.querySelector(
+                    "#loader").style.display = "none";
+                document.querySelector(
+                    "body").style.visibility = "visible";
+
+                window.parent.document.getElementById("loader").style.visibility = "none";
+
+            }
+        };
+        $(document).ready(function () {
+            $("a").on('click', function () {
+
+
+                if (typeof ($(this).attr('target')) === 'undefined') {
+
+
+                    $("#loader").show();
+                };
+
+            });
+
+            $(".TreeView a").on('click', function () {
+
+
+                $("#loader").hide();
+
+            });
+
+            $(".pgr a").on('click', function () {
+
+
+                $("#loader").hide();
+
+            });
+
+            $(".dxp-num").on('click', function () {
+
+
+                $("#loader").hide();
+
+            });
+            
+
+
+        });
+
+  $(document).ready(function () {
+            $('input').attr('autocomplete', 'fake-name-disable-autofill');
+           
+           
+        });
+
+
+    </script>
+</body>
+</html>
+

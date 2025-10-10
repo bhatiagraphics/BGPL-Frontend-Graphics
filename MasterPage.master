@@ -1,0 +1,87 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>WORKFLOW MANAGEMENT</title>
+
+    <!-- page css -->
+   
+    <!-- Custom CSS -->
+    <link href="~/Style/style.min.css?1" rel="stylesheet">
+    <link href="~/Style/login-register-lock.css?1" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body class="skin-default card-no-border">
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">WorkFlow</p>
+        </div>
+    </div>
+    <form id="Form1" runat="server" style="height: 100%">
+      <section id="wrapper">
+           <header class="topbar" style="background: #002d66; height: 90px; box-shadow: 0px 0px 10px rgb(0 0 0 / 30%);">
+         
+
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+
+            </nav>
+        </header>
+
+
+           <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server" 
+                                    AsyncPostBackTimeout="3600">
+                                </asp:ToolkitScriptManager>
+          <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
+      </section>
+        
+    </form>
+
+     <script src="/js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/Js/popper.min.js"></script>
+    <script src="/Js/bootstrap.min.js"></script>
+    <!--Custom JavaScript -->
+    <script type="text/javascript">
+        $(function () {
+            $(".preloader").fadeOut();
+        });
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+                            // ==============================================================
+                            // Login and Recover Password
+                            // ==============================================================
+
+    </script>
+</body>
+</html>

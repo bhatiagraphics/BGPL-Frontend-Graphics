@@ -1,0 +1,296 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage2EwayBill.master.vb" Inherits="MasterPage2EwayBill" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+<html>
+<head id="Head1" runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ERP</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <%--        <link href="<%=ResolveUrl("CustomCss/style.min.css")%>" rel="stylesheet" />--%>
+
+    <link rel="stylesheet" href="/JS/responsive.dataTables.min.css">
+    <!-- Font Awesome -->
+    <link href="/Style/Style.min.css?1" rel="stylesheet" />
+    <%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">--%>
+    <!-- Ionicons -->
+    <%--<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--%>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="themify-icons-font/themify-icons/themify-icons.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/Style/select2.css">
+    <!-- iCheck -->
+
+
+
+    <script src="/JS/jquery-3.2.1.min.js"></script>
+    <style>
+        .EntryFormHeadingNew {
+            font-family: 'Century Gothic';
+            font-size: 21pt;
+            color: #333333;
+            font-weight: bold;
+        }
+    </style>
+
+    <style>
+        .table tbody tr:hover {
+            padding: 4px 2px;
+            color: #333333;
+            background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+            font-weight: normal;
+            font-family: Century Gothic;
+            font-size: 10pt;
+            background-size: auto 60px;
+        }
+
+        /* .select2-container {
+            width: 100% !important;
+        }*/
+
+        .ajax__calendar_container th, .ajax__calendar_container td {
+            padding: 0rem !important;
+            vertical-align: middle !important;
+        }
+
+        .dxgvHeaderInterface {
+             background: #E0E0E0; 
+            font-weight: bold;
+            Color: #333333;
+        }
+
+        .dxgvSelectedRow_DevEx td.dxgv
+{
+    Color:#333333;
+   background: #FED591 url('../images/Gride_Hover.png') repeat-x top;
+    background-image: none;
+}
+
+         .devexeditStyle {
+            text-decoration: none !important;
+            color: #FAAB42 !important;
+            font-size: 20px !important;
+        }
+
+            .devexeditStyle span {
+                display: none;
+            }
+
+            .clsReportss{
+                padding-left:15px;
+                padding-right:15px;
+            }
+
+
+             .ajax__calendar td
+{
+            text-align: left; 
+            padding: 0px; 
+            height: 19px; 
+            font-family:Verdana, Geneva, sans-serif; 
+            font-size:12px; 
+            color:#333;
+}
+
+
+.ajax__calendar .ajax__calendar_container
+{
+            background-color: white;
+            border: solid 1px #cccccc;
+}
+.ajax__calendar .ajax__calendar_header
+{
+            background-color: #ffffff;
+            margin-bottom: 4px;
+}
+.ajax__calendar .ajax__calendar_title, .Calendar .ajax__calendar_next, .Calendar .ajax__calendar_prev
+{
+            color: black;
+            padding-top: 3px;
+}
+.ajax__calendar .ajax__calendar_body
+{
+            background-color: white;
+            border: solid 1px #cccccc;
+}
+.ajax__calendar .ajax__calendar_dayname
+{
+            text-align: center;
+            font-weight: bold;
+           /* margin-bottom: 4px;
+            margin-top: 2px;*/
+           height:unset;  width:unset;
+}
+.ajax__calendar .ajax__calendar_day
+{
+            text-align: center;
+            height:unset;  width:unset; 
+}
+.ajax__calendar_dayname {  }
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_day, .Calendar .ajax__calendar_hover .ajax__calendar_month, .Calendar .ajax__calendar_hover .ajax__calendar_year, .Calendar .ajax__calendar_active
+{
+            color: #004080;
+            font-weight: bold;
+            background-color: silver;              
+}
+.ajax__calendar .ajax__calendar_today
+{
+            font-weight: bold;
+}
+.ajax__calendar .ajax__calendar_other
+{
+            color: #bbbbbb;
+}
+.ajax__calendar .ajax__calendar_hover .ajax__calendar_today, .Calendar .ajax__calendar_hover .ajax__calendar_title
+{
+            color: Blue;
+}
+    </style>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="/Font%20Awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="Styles/StyleModalPopup.css" type="text/css" />
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="skin-default fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Damati</p>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <form runat="server">
+        <div id="main-wrapper">
+            <!-- ============================================================== -->
+            <!-- Topbar header - style you can find in pages.scss -->
+            <!-- ============================================================== -->
+            
+            <!-- ============================================================== -->
+            <!-- End Topbar header -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Left Sidebar - style you can find in sidebar.scss  -->
+            <!-- ============================================================== -->
+                <%--#222d32--%>
+            
+            <!-- ============================================================== -->
+            <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Page wrapper  -->
+            <!-- ============================================================== -->
+            <div class="page-wrapper" id="maincontain" style="margin-left:0px;padding-top:0px">
+                <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server" 
+                    AsyncPostBackTimeout="3600">
+                </asp:ToolkitScriptManager>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+
+
+
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+    </form>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="<%=ResolveUrl("JS/select2.full.min.js")%>"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            jQuery('.DateTime').datepicker({
+                format: 'dd/mm/yyyy',
+                duration: "fast",
+                minDate: "",
+                maxDate: ""
+            }).on('changeDate', function () {
+                $('.datepicker').hide();
+            });
+
+            $('#maincontain').height($(window).height() - 70);
+            //alert($('#maincontain').height())
+
+
+            $(".searchableddl").select2({ dropdownCssClass: 'smalldrop' });
+
+            $(".searchableddl ").filter(".req").each(function () {
+                $(this).siblings(".select2-container").css('border-left', '3px solid red');
+                $(this).siblings(".select2-container").css('border-radius', '4px');
+            });
+
+        });
+        Sys.Application.add_load(function () {
+            jQuery('.DateTime').datepicker({
+                format: 'dd/mm/yyyy',
+                duration: "fast",
+                minDate: "",
+                maxDate: ""
+            }).on('changeDate', function () {
+                $('.datepicker').hide();
+            });;
+
+            $(".searchableddl ").select2({ dropdownCssClass: 'smalldrop' });
+            $(".searchableddl").filter(".req").each(function () {
+                $(this).siblings(".select2-container").css('border-left', '3px solid red');
+                $(this).siblings(".select2-container").css('border-radius', '4px');
+            });
+        });
+
+    </script>
+
+    <script src="<%=ResolveUrl("JS/popper.min.js")%>"></script>
+    <script src="<%=ResolveUrl("JS/bootstrap.min.js")%>"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="<%=ResolveUrl("JS/perfect-scrollbar.jquery.min.js")%>"></script>
+    <!--Wave Effects -->
+    <script src="<%=ResolveUrl("JS/waves.js")%>"></script>
+    <!--Menu sidebar -->
+    <script src="<%=ResolveUrl("JS/sidebarmenu.js")%>"></script>
+    <!--stickey kit -->
+    <script src="<%=ResolveUrl("JS/sticky-kit.min.js")%>"></script>
+    <!-- <script src="JS/jquery.sparkline.min.js"></script> -->
+    <!--Custom JavaScript -->
+    <script src="<%=ResolveUrl("JS/custom.min.js")%>"></script>
+    <script src="<%=ResolveUrl("JS/bootstrap-datepicker.min.js")%>"></script>
+
+    <script src="<%=ResolveUrl("JS/jquery.dataTables.min.js")%>"></script>
+    <script src="<%=ResolveUrl("JS/dataTables.responsive.min.js")%>"></script>
+    <script src="<%=ResolveUrl("JS/CustomJs.js")%>"></script>
+</body>
+</html>
