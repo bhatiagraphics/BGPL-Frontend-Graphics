@@ -30,17 +30,6 @@ Partial Class JobEntrySearch
         End Set
     End Property
 
-    Private Property TotalRecords() As Integer
-        Get
-            If ViewState("TotalRecords") Is Nothing Then
-                Return 0
-            End If
-            Return CInt(ViewState("TotalRecords"))
-        End Get
-        Set(value As Integer)
-            ViewState("TotalRecords") = value
-        End Set
-    End Property
 
 
 
@@ -117,8 +106,7 @@ Partial Class JobEntrySearch
     Private Sub CreateGridView()
         GridViewLST.SettingsBehavior.AllowFocusedRow = True
         
-        Dim pageSize As Integer = GridViewLST.SettingsPager.PageSize
-        Dim dt As DataTable = CreateData(CurrentPage, pageSize)
+        Dim dt As DataTable = CreateData()
         
         GridViewLST.DataSource = dt
         GridViewLST.DataBind()
@@ -126,7 +114,7 @@ Partial Class JobEntrySearch
         ASPxWebControl.GlobalThemeBaseColor = "#4796CE"
     End Sub
 
-    Private Function CreateData(Optional pageNumber As Integer = 1, Optional pageSize As Integer = 15) As DataTable
+    Private Function CreateData() As DataTable
         Dim objDas As New DBAccess
         Dim dt As DataTable = Nothing
         
@@ -143,22 +131,8 @@ Partial Class JobEntrySearch
             params.Add(New SqlParameter("@Flag", "A"))
             params.Add(New SqlParameter("@empcd", If(Session.Item("UserID") Is Nothing, "", Trim(Session.Item("UserID").ToString()))))
             params.Add(New SqlParameter("@status", ""))
-            params.Add(New SqlParameter("@PageNumber", pageNumber))
-            params.Add(New SqlParameter("@PageSize", pageSize))
-            
-            Dim totalRecordsParam As New SqlParameter("@TotalRecords", SqlDbType.Int)
-            totalRecordsParam.Direction = ParameterDirection.Output
-            params.Add(totalRecordsParam)
             
             dt = objDas.GetDataTableWithParams("Sp_jobentry_GetData", params.ToArray())
-            
-            If totalRecordsParam.Value IsNot Nothing AndAlso Not IsDBNull(totalRecordsParam.Value) Then
-                TotalRecords = CInt(totalRecordsParam.Value)
-            Else
-                TotalRecords = 0
-            End If
-            
-            CurrentPage = pageNumber
             
         Catch ex As Exception
             ErrorMsg.Visible = True
@@ -176,19 +150,11 @@ Partial Class JobEntrySearch
     End Sub
 
     Protected Sub ASPxGridView1_DataBinding(ByVal sender As Object, ByVal e As EventArgs)
-        Dim pageSize As Integer = GridViewLST.SettingsPager.PageSize
-        Dim pageIndex As Integer = GridViewLST.PageIndex
-        
-        Dim dt As DataTable = CreateData(pageIndex + 1, pageSize)
+        Dim dt As DataTable = CreateData()
         TryCast(sender, ASPxGridView).DataSource = dt
     End Sub
 
     Protected Sub ASPxGridView1_PageIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
-        Dim grid As ASPxGridView = TryCast(sender, ASPxGridView)
-        If grid IsNot Nothing Then
-            CurrentPage = grid.PageIndex + 1
-            CreateGridView()
-        End If
     End Sub
 
     ''Protected Sub Application_PreRequestHandlerExecute(ByVal sender As Object, ByVal e As EventArgs)
