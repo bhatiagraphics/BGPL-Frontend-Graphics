@@ -122,10 +122,6 @@ Partial Class JobEntrySearch
         
         GridViewLST.DataSource = dt
         GridViewLST.DataBind()
-        
-        If TotalRecords > 0 Then
-            GridViewLST.VisibleRowCount = TotalRecords
-        End If
 
         ASPxWebControl.GlobalThemeBaseColor = "#4796CE"
     End Sub
@@ -185,10 +181,6 @@ Partial Class JobEntrySearch
         
         Dim dt As DataTable = CreateData(pageIndex + 1, pageSize)
         TryCast(sender, ASPxGridView).DataSource = dt
-        
-        If TotalRecords > 0 Then
-            GridViewLST.VisibleRowCount = TotalRecords
-        End If
     End Sub
 
     Protected Sub ASPxGridView1_PageIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
