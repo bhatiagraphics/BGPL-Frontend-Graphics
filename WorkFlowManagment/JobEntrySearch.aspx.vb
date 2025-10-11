@@ -135,7 +135,7 @@ Partial Class JobEntrySearch
             params.Add(New SqlParameter("@jobid", If(String.IsNullOrEmpty(txtJobId.Text), "", txtJobId.Text)))
             params.Add(New SqlParameter("@jobname", If(String.IsNullOrEmpty(txtJobName.Text), "", txtJobName.Text)))
             params.Add(New SqlParameter("@intcode", If(String.IsNullOrEmpty(txtInternalCode.Text), "", txtInternalCode.Text)))
-            params.Add(New SqlParameter("@priority", If(String.IsNullOrEmpty(ddlprioirty.SelectedValue), "", ddlprioirty.SelectedValue)))
+            params.Add(New SqlParameter("@prioirty", If(String.IsNullOrEmpty(ddlprioirty.SelectedValue), "", ddlprioirty.SelectedValue)))
             params.Add(New SqlParameter("@assignedto", If(String.IsNullOrEmpty(ddlassignedto.SelectedValue), "", ddlassignedto.SelectedValue)))
             params.Add(New SqlParameter("@cuscode", If(String.IsNullOrEmpty(ddlcuscode.SelectedValue), "", ddlcuscode.SelectedValue)))
             params.Add(New SqlParameter("@jobcreatedt", If(String.IsNullOrEmpty(txtjobcreatedt.Text), "", txtjobcreatedt.Text)))
