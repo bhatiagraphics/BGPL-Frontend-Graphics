@@ -129,9 +129,11 @@
                             <ContentTemplate>
 
                                 <dx:ASPxGridView ID="GridViewLST" runat="server" AutoGenerateColumns="False"
-                                    EnableViewState="False" KeyFieldName="jobid"
+                                    EnableViewState="True" KeyFieldName="jobid"
                                     OnCustomCallback="ASPxGridView1_CustomCallback"
-                                    OnDataBinding="ASPxGridView1_DataBinding" Theme="Metropolis"
+                                    OnDataBinding="ASPxGridView1_DataBinding"
+                                    OnPageIndexChanged="ASPxGridView1_PageIndexChanged"
+                                    Theme="Metropolis"
                                     Width="100%">
                                     <SettingsBehavior AllowFocusedRow="True" ProcessSelectionChangedOnServer="True" />
                                     <Settings ShowFilterRow="True" ShowFooter="True" ShowGroupButtons="True"

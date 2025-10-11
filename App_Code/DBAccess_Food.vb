@@ -90,6 +90,34 @@ Namespace FOODERPWEB.DAL
             Return reader
         End Function
 
+        Public Function GetDataTableWithParams(ByVal procName As String, ByVal params() As SqlParameter) As DataTable
+            Dim dt As New DataTable()
+            Dim cnn As New SqlConnection()
+            Try
+                cnn.ConnectionString = sCon
+                Using cmd As New SqlCommand(procName, cnn)
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.CommandTimeout = 60
+                    
+                    If params IsNot Nothing Then
+                        cmd.Parameters.AddRange(params)
+                    End If
+                    
+                    cnn.Open()
+                    Using da As New SqlDataAdapter(cmd)
+                        da.Fill(dt)
+                    End Using
+                End Using
+            Catch ex As Exception
+                If handleErrors Then
+                    strLastError = ex.Message
+                Else
+                    Throw New Exception("Error executing stored procedure with parameters: " & ex.Message, ex)
+                End If
+            End Try
+            Return dt
+        End Function
+
         Public Function ExecuteScalar() As Object
             Dim obj As Object = Nothing
             Try
