@@ -28,10 +28,7 @@ CREATE PROCEDURE [dbo].[Sp_jobentry_GetData]
     @ticketno nvarchar(60),          
     @Flag Char(1),          
     @empcd char(7),          
-    @status char(1),
-    @PageNumber INT = 1,
-    @PageSize INT = 15,
-    @TotalRecords INT OUTPUT
+    @status char(1)
 AS            
             
 Declare @fdt as smalldatetime Set @fdt = convert(smalldatetime,@jobcreatedt,103)            
@@ -170,20 +167,13 @@ begin
     delete from #temp Where ticketno  not like '%' + @ticketno + '%'           
 End          
           
-SELECT @TotalRecords = COUNT(*) FROM #temp;
-
-;WITH PaginatedResults AS (
-    SELECT *, ROW_NUMBER() OVER (ORDER BY jobcreatedt DESC) as RowNum
-    FROM #temp
-)
 SELECT 
     jobid, jobname, cuscode, cusname, intcode, revno, prioirty, printcd, printname,
     jobcreatedt, jobcreatedt1, assignedto, assignedname, assignedto_appformgraphic,
     assignedname_appfromgraphics, assignedto_prepress, assignedname_apptoprepress,
     ticketno, status
-FROM PaginatedResults
-WHERE RowNum BETWEEN ((@PageNumber - 1) * @PageSize + 1) AND (@PageNumber * @PageSize)
-ORDER BY RowNum;
+FROM #temp
+ORDER BY jobcreatedt DESC;
 
 End            
             
