@@ -18,6 +18,30 @@ Partial Class JobEntrySearch
     Dim sFileShortName As String, sFileName As String, sUrl As String
     Public thisConnectionString As String = ConfigurationManager.ConnectionStrings("ConStrFood").ConnectionString
 
+    Private Property CurrentPage() As Integer
+        Get
+            If ViewState("CurrentPage") Is Nothing Then
+                Return 1
+            End If
+            Return CInt(ViewState("CurrentPage"))
+        End Get
+        Set(value As Integer)
+            ViewState("CurrentPage") = value
+        End Set
+    End Property
+
+    Private Property TotalRecords() As Integer
+        Get
+            If ViewState("TotalRecords") Is Nothing Then
+                Return 0
+            End If
+            Return CInt(ViewState("TotalRecords"))
+        End Get
+        Set(value As Integer)
+            ViewState("TotalRecords") = value
+        End Set
+    End Property
+
 
 
     Protected Sub gvHover_RowCreated(ByVal sender As Object, ByVal e As GridViewRowEventArgs)
@@ -92,16 +116,61 @@ Partial Class JobEntrySearch
 
     Private Sub CreateGridView()
         GridViewLST.SettingsBehavior.AllowFocusedRow = True
-        GridViewLST.DataSource = CreateData()
+        
+        Dim pageSize As Integer = GridViewLST.SettingsPager.PageSize
+        Dim dt As DataTable = CreateData(CurrentPage, pageSize)
+        
+        GridViewLST.DataSource = dt
         GridViewLST.DataBind()
-
+        
+        If TotalRecords > 0 Then
+            GridViewLST.VisibleRowCount = TotalRecords
+        End If
 
         ASPxWebControl.GlobalThemeBaseColor = "#4796CE"
     End Sub
 
-    Private Function CreateData() As SqlDataSource
-        Dim selectCmnd As String = "Exec Sp_jobentry_GetData '" & txtJobId.Text & "','" & txtJobName.Text & "','" & txtInternalCode.Text & "','" & ddlprioirty.SelectedValue & "','" & ddlassignedto.SelectedValue & "','" & ddlcuscode.SelectedValue & "','" & txtjobcreatedt.Text & "','" & txtticketno.Text & "','A','" & Trim(Session.Item("UserID")) & "','' "
-        Return New SqlDataSource(thisConnectionString, selectCmnd)
+    Private Function CreateData(Optional pageNumber As Integer = 1, Optional pageSize As Integer = 15) As DataTable
+        Dim objDas As New DBAccess
+        Dim dt As DataTable = Nothing
+        
+        Try
+            Dim params As New List(Of SqlParameter)()
+            params.Add(New SqlParameter("@jobid", If(String.IsNullOrEmpty(txtJobId.Text), "", txtJobId.Text)))
+            params.Add(New SqlParameter("@jobname", If(String.IsNullOrEmpty(txtJobName.Text), "", txtJobName.Text)))
+            params.Add(New SqlParameter("@intcode", If(String.IsNullOrEmpty(txtInternalCode.Text), "", txtInternalCode.Text)))
+            params.Add(New SqlParameter("@priority", If(String.IsNullOrEmpty(ddlprioirty.SelectedValue), "", ddlprioirty.SelectedValue)))
+            params.Add(New SqlParameter("@assignedto", If(String.IsNullOrEmpty(ddlassignedto.SelectedValue), "", ddlassignedto.SelectedValue)))
+            params.Add(New SqlParameter("@cuscode", If(String.IsNullOrEmpty(ddlcuscode.SelectedValue), "", ddlcuscode.SelectedValue)))
+            params.Add(New SqlParameter("@jobcreatedt", If(String.IsNullOrEmpty(txtjobcreatedt.Text), "", txtjobcreatedt.Text)))
+            params.Add(New SqlParameter("@ticketno", If(String.IsNullOrEmpty(txtticketno.Text), "", txtticketno.Text)))
+            params.Add(New SqlParameter("@status", "A"))
+            params.Add(New SqlParameter("@userid", If(Session.Item("UserID") Is Nothing, "", Trim(Session.Item("UserID").ToString()))))
+            params.Add(New SqlParameter("@dummy", ""))
+            params.Add(New SqlParameter("@PageNumber", pageNumber))
+            params.Add(New SqlParameter("@PageSize", pageSize))
+            
+            Dim totalRecordsParam As New SqlParameter("@TotalRecords", SqlDbType.Int)
+            totalRecordsParam.Direction = ParameterDirection.Output
+            params.Add(totalRecordsParam)
+            
+            dt = objDas.GetDataTableWithParams("Sp_jobentry_GetData", params.ToArray())
+            
+            If totalRecordsParam.Value IsNot Nothing AndAlso Not IsDBNull(totalRecordsParam.Value) Then
+                TotalRecords = CInt(totalRecordsParam.Value)
+            Else
+                TotalRecords = 0
+            End If
+            
+            CurrentPage = pageNumber
+            
+        Catch ex As Exception
+            ErrorMsg.Visible = True
+            ErrorMsg.Text = "Error loading data: " & ex.Message
+            dt = New DataTable()
+        End Try
+        
+        Return dt
     End Function
 
     Protected Sub ASPxGridView1_CustomCallback(ByVal sender As Object, ByVal e As ASPxGridViewCustomCallbackEventArgs)
@@ -111,13 +180,23 @@ Partial Class JobEntrySearch
     End Sub
 
     Protected Sub ASPxGridView1_DataBinding(ByVal sender As Object, ByVal e As EventArgs)
-        TryCast(sender, ASPxGridView).DataSource = CreateData()
-        'Set_UserAccessRights()
-        'If ViewEntry = True Then
-        '    GridViewLST.Columns(0).Visible = True
-        'Else
-        '    GridViewLST.Columns(0).Visible = False
-        'End If
+        Dim pageSize As Integer = GridViewLST.SettingsPager.PageSize
+        Dim pageIndex As Integer = GridViewLST.PageIndex
+        
+        Dim dt As DataTable = CreateData(pageIndex + 1, pageSize)
+        TryCast(sender, ASPxGridView).DataSource = dt
+        
+        If TotalRecords > 0 Then
+            GridViewLST.VisibleRowCount = TotalRecords
+        End If
+    End Sub
+
+    Protected Sub ASPxGridView1_PageIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
+        Dim grid As ASPxGridView = TryCast(sender, ASPxGridView)
+        If grid IsNot Nothing Then
+            CurrentPage = grid.PageIndex + 1
+            CreateGridView()
+        End If
     End Sub
 
     ''Protected Sub Application_PreRequestHandlerExecute(ByVal sender As Object, ByVal e As EventArgs)
