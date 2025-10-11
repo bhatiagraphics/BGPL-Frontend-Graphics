@@ -42,62 +42,37 @@ set @administrator = (select administrator from users where u_id = @empcd)
 if @Flag ='A'            
 Begin            
           
-declare @report_u_id  char(20)           
- declare @user char(20)           
-            
- create table #user           
- (           
+create table #user           
+(           
   srno int identity(1,1),           
   u_id char(60),           
   empname char(60),           
   alevel int          
 )           
             
- insert into #user select u_id,u_name,0 from users where u_id = @empcd           
-             
- create table #dep           
- (           
-  srno int identity(1,1),           
-  u_id char(60),           
-  empname char(60),           
-  alevel int,           
-  flag char(1)          
-)           
-            
- insert into #dep select u_id,u_name,1,'' as flag from users where ReportingTo=@empcd           
- update #dep set alevel = srno           
-            
- declare findgrp_cur cursor           
- for           
- select u_id,alevel from #dep where flag=''           
- declare @crtuserid1 char(20)           
- declare @alevel int           
- open findgrp_cur           
- fetch next from findgrp_cur into @crtuserid1,@alevel           
- while @@fetch_status=0           
- begin           
-  declare findgrp2_cur cursor           
-  for            
-  select u_id from users where ReportingTo=@crtuserid1            
-  declare @crtuserid2 char(20)          
-  open findgrp2_cur           
-  fetch next from findgrp2_cur into @crtuserid2           
-  while @@fetch_status=0           
-  begin              
-   insert into #dep values(@crtuserid2,'',@alevel*10+1,'')           
-   fetch next from findgrp2_cur into @crtuserid2           
-  end            
-  close findgrp2_cur           
-  deallocate findgrp2_cur           
-  update #dep set flag='A' where u_id=@crtuserid1            
-  fetch next from findgrp_cur into @crtuserid1,@alevel           
- end            
- close findgrp_cur           
- deallocate findgrp_cur           
-            
- insert into #user(u_id,empname,alevel)           
- select u_id,empname,alevel from #dep order by cast(alevel as char)           
- update #user set empname = ag.u_name from #user t,users ag where ag.u_id = t.u_id           
+;WITH UserHierarchy AS (
+    SELECT 
+        u_id,
+        u_name as empname,
+        0 as alevel,
+        CAST(u_id AS VARCHAR(1000)) as HierarchyPath
+    FROM users 
+    WHERE u_id = @empcd
+    
+    UNION ALL
+    
+    SELECT 
+        u.u_id,
+        u.u_name as empname,
+        uh.alevel + 1,
+        CAST(uh.HierarchyPath + '|' + u.u_id AS VARCHAR(1000))
+    FROM users u
+    INNER JOIN UserHierarchy uh ON u.ReportingTo = uh.u_id
+)
+INSERT INTO #user (u_id, empname, alevel)
+SELECT u_id, empname, alevel
+FROM UserHierarchy
+OPTION (MAXRECURSION 0)           
           
 create table #temp(          
 jobid nvarchar(20) ,          
