@@ -104,8 +104,8 @@ Namespace FOODERPWEB.DAL
                     End If
                     
                     cnn.Open()
-                    Using da As New SqlDataAdapter(cmd)
-                        da.Fill(dt)
+                    Using reader As IDataReader = cmd.ExecuteReader()
+                        dt.Load(reader)
                     End Using
                 End Using
             Catch ex As Exception
