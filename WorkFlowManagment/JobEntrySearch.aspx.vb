@@ -140,9 +140,9 @@ Partial Class JobEntrySearch
             params.Add(New SqlParameter("@cuscode", If(String.IsNullOrEmpty(ddlcuscode.SelectedValue), "", ddlcuscode.SelectedValue)))
             params.Add(New SqlParameter("@jobcreatedt", If(String.IsNullOrEmpty(txtjobcreatedt.Text), "", txtjobcreatedt.Text)))
             params.Add(New SqlParameter("@ticketno", If(String.IsNullOrEmpty(txtticketno.Text), "", txtticketno.Text)))
-            params.Add(New SqlParameter("@status", "A"))
-            params.Add(New SqlParameter("@userid", If(Session.Item("UserID") Is Nothing, "", Trim(Session.Item("UserID").ToString()))))
-            params.Add(New SqlParameter("@dummy", ""))
+            params.Add(New SqlParameter("@Flag", "A"))
+            params.Add(New SqlParameter("@empcd", If(Session.Item("UserID") Is Nothing, "", Trim(Session.Item("UserID").ToString()))))
+            params.Add(New SqlParameter("@status", ""))
             params.Add(New SqlParameter("@PageNumber", pageNumber))
             params.Add(New SqlParameter("@PageSize", pageSize))
             
