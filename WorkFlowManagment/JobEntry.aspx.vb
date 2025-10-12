@@ -2211,20 +2211,44 @@ Partial Class JobEntry
     End Sub
 
 
-    Private Sub FillData()
+    Private Sub FillData(Optional pageIndex As Integer = 0)
         Try
+            Dim pageSize As Integer = 10 ' Or get from a control
+
             ViewState("SortExpr") = sSortExp
             Dim dt1 As DataTable
             Dim objDas As New DBAccess
-            dt1 = objDas.GetDataTable("exec Sp_jobentry_log_GetData '" & Trim(hdnJobId.Value) & "'")
+
+            Dim totalRecords As Integer = 0
+            Dim params As New List(Of SqlParameter)()
+            params.Add(New SqlParameter("@jobid", Trim(hdnJobId.Value)))
+            params.Add(New SqlParameter("@PageNumber", pageIndex + 1))
+            params.Add(New SqlParameter("@PageSize", pageSize))
+
+            Dim totalRecordsParam As New SqlParameter("@TotalRecords", SqlDbType.Int)
+            totalRecordsParam.Direction = ParameterDirection.Output
+            params.Add(totalRecordsParam)
+
+            ' Assuming Sp_jobentry_log_GetData is updated to support pagination
+            dt1 = objDas.GetDataTableWithParams("Sp_jobentry_log_GetData", params.ToArray())
+
+            If totalRecordsParam.Value IsNot DBNull.Value Then
+                totalRecords = Convert.ToInt32(totalRecordsParam.Value)
+            End If
+
             gv1.DataSource = dt1
-            gv1.PageIndex = iPage
+            gv1.PageIndex = pageIndex
+            gv1.VirtualItemCount = totalRecords
             gv1.DataBind()
 
         Catch ex As Exception
             Dim myscript As String = "alert('" & ex.Message & "');"
             Page.ClientScript.RegisterStartupScript(Me.GetType(), "myscript", myscript, True)
         End Try
+    End Sub
+
+    Protected Sub gv1_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
+        FillData(e.NewPageIndex)
     End Sub
 
 

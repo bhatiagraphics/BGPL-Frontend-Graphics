@@ -852,7 +852,8 @@
                                                 <asp:GridView ID="gv1" runat="server" GridLines="None" 
                                                     AutoGenerateColumns="False" CssClass="table table-striped"
                                                     DataKeyNames="ssrno" ShowHeaderWhenEmpty="true"
-                                                    OnRowDataBound="OnRowDataBound_GV1" Width="2000px" >
+                                                    OnRowDataBound="OnRowDataBound_GV1" Width="2000px"
+                                                    AllowPaging="True" OnPageIndexChanging="gv1_PageIndexChanging" PageSize="10" >
                                                     <Columns>
                                                         <asp:CommandField ButtonType="Image" SelectImageUrl="~/images/Edit-icon.png"
                                                             ShowSelectButton="True">
