@@ -772,7 +772,7 @@ Namespace FOODERPWEB.Class
             End Try
         End Function
 
-        Public Shared Function GetDataAll(ByVal jobid As String, ByVal fromdt As String, ByVal todt As String, ByVal cuscode As String, ByVal Flag As String) As DataTable
+        Public Shared Function GetDataAll(ByVal jobid As String, ByVal fromdt As String, ByVal todt As String, ByVal cuscode As String, ByVal Flag As String, ByVal pageNumber As Integer, ByVal pageSize As Integer, ByRef totalRecords As Integer) As DataTable
             Try
                 Dim db As DBAccess = New DBAccess
                 db.Parameters.Add(New SqlParameter("@jobid", jobid))
@@ -780,12 +780,30 @@ Namespace FOODERPWEB.Class
                 db.Parameters.Add(New SqlParameter("@todt", todt))
                 db.Parameters.Add(New SqlParameter("@cuscode", cuscode))
                 db.Parameters.Add(New SqlParameter("@Flag", Flag))
+                db.Parameters.Add(New SqlParameter("@PageNumber", pageNumber))
+                db.Parameters.Add(New SqlParameter("@PageSize", pageSize))
+
+                Dim totalRecordsParam As New SqlParameter("@TotalRecords", SqlDbType.Int)
+                totalRecordsParam.Direction = ParameterDirection.Output
+                db.Parameters.Add(totalRecordsParam)
 
                 Dim dt As DataTable = db.ExecuteDataTable("Sp_jobentry_GetData")
+                If totalRecordsParam.Value IsNot DBNull.Value Then
+                    totalRecords = Convert.ToInt32(totalRecordsParam.Value)
+                Else
+                    totalRecords = 0
+                End If
+
                 Return dt
             Catch ex As Exception
                 Throw ex
             End Try
+        End Function
+
+        Public Shared Function GetTotalRecordCount(ByVal jobid As String, ByVal fromdt As String, ByVal todt As String, ByVal cuscode As String, ByVal Flag As String) As Integer
+            Dim totalRecords As Integer = 0
+            GetDataAll(jobid, fromdt, todt, cuscode, Flag, 1, 0, totalRecords)
+            Return totalRecords
         End Function
 
 
