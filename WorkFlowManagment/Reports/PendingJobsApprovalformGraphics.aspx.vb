@@ -217,9 +217,26 @@ Partial Class PendingJobsApprovalformGraphics
         Pending_Jobs_Approval_form_Graphics.DataBind()
     End Sub
 
-    Private Function CreateData() As SqlDataSource
-        Dim selectCmnd As String = "Exec Pending_Jobs_Sentto_Graphic_sp '" & (txtfromdt.Text) & "', '" & (txttodt.Text) & "','" & Trim(Session.Item("UserID")) & "','" & Trim(ddlprinttype.SelectedItem.Value) & "','" & Trim(ddlassignedto.SelectedItem.Value) & "'"
-        Return New SqlDataSource(thisConnectionString, selectCmnd)
+    Private Function CreateData() As DataTable
+        Dim dt As New DataTable()
+        Using con As New SqlConnection(thisConnectionString)
+            Using cmd As New SqlCommand("Pending_Jobs_Sentto_Graphic_sp", con)
+                cmd.CommandType = CommandType.StoredProcedure
+                ' Set the command timeout to 300 seconds (5 minutes)
+                cmd.CommandTimeout = 300
+
+                cmd.Parameters.AddWithValue("@fromdt", txtfromdt.Text)
+                cmd.Parameters.AddWithValue("@todt", txttodt.Text)
+                cmd.Parameters.AddWithValue("@empcd", Trim(Session.Item("UserID")))
+                cmd.Parameters.AddWithValue("@printcd", Trim(ddlprinttype.SelectedItem.Value))
+                cmd.Parameters.AddWithValue("@assignedto", Trim(ddlassignedto.SelectedItem.Value))
+
+                Using sda As New SqlDataAdapter(cmd)
+                    sda.Fill(dt)
+                End Using
+            End Using
+        End Using
+        Return dt
     End Function
 
     Protected Sub ASPxGridView1_CustomCallback(ByVal sender As Object, ByVal e As ASPxGridViewCustomCallbackEventArgs) Handles Pending_Jobs_Approval_form_Graphics.CustomCallback
@@ -229,7 +246,12 @@ Partial Class PendingJobsApprovalformGraphics
     End Sub
 
     Protected Sub ASPxGridView1_DataBinding(ByVal sender As Object, ByVal e As EventArgs) Handles Pending_Jobs_Approval_form_Graphics.DataBinding
-        TryCast(sender, ASPxGridView).DataSource = CreateData()
+        ' The DataSource is now set in the CreateGridView method, so this can be simplified.
+        ' However, to ensure data is always fresh on data binding events, we'll re-bind.
+        Dim grid As ASPxGridView = TryCast(sender, ASPxGridView)
+        If grid IsNot Nothing Then
+            grid.DataSource = CreateData()
+        End If
     End Sub
 
     Protected Sub ASPxGridView1_HeaderFilter(sender As Object, e As DevExpress.Web.ASPxGridViewHeaderFilterEventArgs) Handles Pending_Jobs_Approval_form_Graphics.HeaderFilterFillItems
