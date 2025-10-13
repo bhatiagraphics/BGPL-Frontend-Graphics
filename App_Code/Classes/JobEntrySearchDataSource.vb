@@ -8,7 +8,10 @@ Public Class JobEntrySearchDataSource
 
     Public Shared Function GetJobData(maximumRows As Integer, startRowIndex As Integer, jobid As String, jobname As String, intcode As String, prioirty As String, assignedto As String, cuscode As String, jobcreatedt As String, ticketno As String, empcd As String) As DataTable
         Dim pageSize As Integer = maximumRows
-        Dim pageNumber As Integer = (startRowIndex / pageSize) + 1
+        Dim pageNumber As Integer = 1
+        If pageSize > 0 Then
+            pageNumber = (startRowIndex / pageSize) + 1
+        End If
         Dim totalRecords As Integer = 0
         Return FetchJobData(pageNumber, pageSize, totalRecords, jobid, jobname, intcode, prioirty, assignedto, cuscode, jobcreatedt, ticketno, empcd)
     End Function
