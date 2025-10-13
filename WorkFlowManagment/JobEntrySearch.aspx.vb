@@ -128,45 +128,39 @@ Partial Class JobEntrySearch
     End Sub
 
     Private Function CreateData(Optional pageNumber As Integer = 1, Optional pageSize As Integer = 15) As DataTable
-        Dim objDas As New DBAccess
-        Dim dt As DataTable = Nothing
-        
-        Try
-            Dim params As New List(Of SqlParameter)()
-            params.Add(New SqlParameter("@jobid", If(String.IsNullOrEmpty(txtJobId.Text), "", txtJobId.Text)))
-            params.Add(New SqlParameter("@jobname", If(String.IsNullOrEmpty(txtJobName.Text), "", txtJobName.Text)))
-            params.Add(New SqlParameter("@intcode", If(String.IsNullOrEmpty(txtInternalCode.Text), "", txtInternalCode.Text)))
-            params.Add(New SqlParameter("@prioirty", If(String.IsNullOrEmpty(ddlprioirty.SelectedValue), "", ddlprioirty.SelectedValue)))
-            params.Add(New SqlParameter("@assignedto", If(String.IsNullOrEmpty(ddlassignedto.SelectedValue), "", ddlassignedto.SelectedValue)))
-            params.Add(New SqlParameter("@cuscode", If(String.IsNullOrEmpty(ddlcuscode.SelectedValue), "", ddlcuscode.SelectedValue)))
-            params.Add(New SqlParameter("@jobcreatedt", If(String.IsNullOrEmpty(txtjobcreatedt.Text), "", txtjobcreatedt.Text)))
-            params.Add(New SqlParameter("@ticketno", If(String.IsNullOrEmpty(txtticketno.Text), "", txtticketno.Text)))
-            params.Add(New SqlParameter("@Flag", "A"))
-            params.Add(New SqlParameter("@empcd", If(Session.Item("UserID") Is Nothing, "", Trim(Session.Item("UserID").ToString()))))
-            params.Add(New SqlParameter("@status", ""))
-            params.Add(New SqlParameter("@PageNumber", pageNumber))
-            params.Add(New SqlParameter("@PageSize", pageSize))
-            
-            Dim totalRecordsParam As New SqlParameter("@TotalRecords", SqlDbType.Int)
-            totalRecordsParam.Direction = ParameterDirection.Output
-            params.Add(totalRecordsParam)
-            
-            dt = objDas.GetDataTableWithParams("Sp_jobentry_GetData", params.ToArray())
-            
-            If totalRecordsParam.Value IsNot Nothing AndAlso Not IsDBNull(totalRecordsParam.Value) Then
-                TotalRecords = CInt(totalRecordsParam.Value)
-            Else
-                TotalRecords = 0
-            End If
-            
-            CurrentPage = pageNumber
-            
-        Catch ex As Exception
-            ErrorMsg.Visible = True
-            ErrorMsg.Text = "Error loading data: " & ex.Message
-            dt = New DataTable()
-        End Try
-        
+        Dim dt As New DataTable()
+        Using con As New SqlConnection(thisConnectionString)
+            Using com As New SqlCommand("Sp_jobentry_GetData", con)
+                com.CommandType = CommandType.StoredProcedure
+                com.Parameters.AddWithValue("@jobid", If(String.IsNullOrEmpty(txtJobId.Text), "", txtJobId.Text))
+                com.Parameters.AddWithValue("@jobname", If(String.IsNullOrEmpty(txtJobName.Text), "", txtJobName.Text))
+                com.Parameters.AddWithValue("@intcode", If(String.IsNullOrEmpty(txtInternalCode.Text), "", txtInternalCode.Text))
+                com.Parameters.AddWithValue("@prioirty", If(String.IsNullOrEmpty(ddlprioirty.SelectedValue), "", ddlprioirty.SelectedValue))
+                com.Parameters.AddWithValue("@assignedto", If(String.IsNullOrEmpty(ddlassignedto.SelectedValue), "", ddlassignedto.SelectedValue))
+                com.Parameters.AddWithValue("@cuscode", If(String.IsNullOrEmpty(ddlcuscode.SelectedValue), "", ddlcuscode.SelectedValue))
+                com.Parameters.AddWithValue("@jobcreatedt", If(String.IsNullOrEmpty(txtjobcreatedt.Text), "", txtjobcreatedt.Text))
+                com.Parameters.AddWithValue("@ticketno", If(String.IsNullOrEmpty(txtticketno.Text), "", txtticketno.Text))
+                com.Parameters.AddWithValue("@Flag", "A")
+                com.Parameters.AddWithValue("@empcd", If(Session.Item("UserID") Is Nothing, "", Trim(Session.Item("UserID").ToString())))
+                com.Parameters.AddWithValue("@status", "")
+                com.Parameters.AddWithValue("@PageNumber", pageNumber)
+                com.Parameters.AddWithValue("@PageSize", pageSize)
+
+                Dim totalRecordsParam As New SqlParameter("@TotalRecords", SqlDbType.Int)
+                totalRecordsParam.Direction = ParameterDirection.Output
+                com.Parameters.Add(totalRecordsParam)
+
+                con.Open()
+                dt.Load(com.ExecuteReader())
+
+                If totalRecordsParam.Value IsNot DBNull.Value Then
+                    TotalRecords = Convert.ToInt32(totalRecordsParam.Value)
+                Else
+                    TotalRecords = 0
+                End If
+                CurrentPage = pageNumber
+            End Using
+        End Using
         Return dt
     End Function
 
@@ -181,7 +175,8 @@ Partial Class JobEntrySearch
         Dim pageIndex As Integer = GridViewLST.PageIndex
         
         Dim dt As DataTable = CreateData(pageIndex + 1, pageSize)
-        TryCast(sender, ASPxGridView).DataSource = dt
+        GridViewLST.DataSource = dt
+        GridViewLST.VirtualItemCount = TotalRecords
     End Sub
 
     Protected Sub ASPxGridView1_PageIndexChanged(ByVal sender As Object, ByVal e As EventArgs)

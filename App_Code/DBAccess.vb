@@ -229,21 +229,6 @@ Namespace AGPLERPWEB.DAL
             Return dt
         End Function
 
-        Public Function GetDataTableWithParams(ByVal storedProcedureName As String, ByVal sqlParams As SqlParameter()) As DataTable
-            Dim dt As New DataTable()
-            Using conn As New SqlConnection(sCon)
-                Using cmd As New SqlCommand(storedProcedureName, conn)
-                    cmd.CommandType = CommandType.StoredProcedure
-                    If sqlParams IsNot Nothing Then
-                        cmd.Parameters.AddRange(sqlParams)
-                    End If
-                    Using da As New SqlDataAdapter(cmd)
-                        da.Fill(dt)
-                    End Using
-                End Using
-            End Using
-            Return dt
-        End Function
 
         Public Function ExecuteDataTable(ByVal commandtext As String) As DataTable
             Dim dt As DataTable = Nothing

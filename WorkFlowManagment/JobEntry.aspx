@@ -853,7 +853,7 @@
                                                     AutoGenerateColumns="False" CssClass="table table-striped"
                                                     DataKeyNames="ssrno" ShowHeaderWhenEmpty="true"
                                                     OnRowDataBound="OnRowDataBound_GV1" Width="2000px"
-                                                    AllowPaging="True" OnPageIndexChanging="gv1_PageIndexChanging" PageSize="10" >
+                                                    AllowPaging="True" OnPageIndexChanging="gv1_PageIndexChanging" PageSize="15" AllowCustomPaging="True" >
                                                     <Columns>
                                                         <asp:CommandField ButtonType="Image" SelectImageUrl="~/images/Edit-icon.png"
                                                             ShowSelectButton="True">
@@ -910,7 +910,7 @@
                                                         </asp:BoundField>
 
                                                     </Columns>
-
+                                                    <PagerSettings Mode="NumericFirstLast" />
                                                 </asp:GridView>
 
                                             </ContentTemplate>
@@ -1015,4 +1015,3 @@
 
 
 </asp:Content>
-
