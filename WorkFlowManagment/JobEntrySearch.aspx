@@ -119,7 +119,14 @@
             </div>
 
         </div>
-
+        <asp:ObjectDataSource ID="JobDataSource" runat="server"
+            TypeName="JobEntrySearch"
+            SelectMethod="GetJobData"
+            SelectCountMethod="GetJobDataCount"
+            EnablePaging="true"
+            MaximumRowsParameterName="maximumRows"
+            StartRowIndexParameterName="startRowIndex">
+        </asp:ObjectDataSource>
 
         <div class="">
             <div class="card">
@@ -129,10 +136,8 @@
                             <ContentTemplate>
 
                                 <dx:ASPxGridView ID="GridViewLST" runat="server" AutoGenerateColumns="False"
+                                    DataSourceID="JobDataSource"
                                     EnableViewState="True" KeyFieldName="jobid"
-                                    OnCustomCallback="ASPxGridView1_CustomCallback"
-                                    OnCustomBindingGetDataRowCount="GridViewLST_CustomBindingGetDataRowCount"
-                                    OnCustomBindingGetData="GridViewLST_CustomBindingGetData"
                                     Theme="Metropolis"
                                     Width="100%">
                                     <SettingsBehavior AllowFocusedRow="True" ProcessSelectionChangedOnServer="True" />
@@ -255,4 +260,3 @@
 
     </div>
 </asp:Content>
-
