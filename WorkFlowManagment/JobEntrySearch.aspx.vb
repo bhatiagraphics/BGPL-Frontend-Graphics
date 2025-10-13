@@ -18,48 +18,19 @@ Partial Class JobEntrySearch
     Dim sFileShortName As String, sFileName As String, sUrl As String
     Public thisConnectionString As String = ConfigurationManager.ConnectionStrings("ConStrFood").ConnectionString
 
-    Private Property CurrentPage() As Integer
-        Get
-            If ViewState("CurrentPage") Is Nothing Then
-                Return 1
-            End If
-            Return CInt(ViewState("CurrentPage"))
-        End Get
-        Set(value As Integer)
-            ViewState("CurrentPage") = value
-        End Set
-    End Property
-
-    Private Property TotalRecords() As Integer
-        Get
-            If ViewState("TotalRecords") Is Nothing Then
-                Return 0
-            End If
-            Return CInt(ViewState("TotalRecords"))
-        End Get
-        Set(value As Integer)
-            ViewState("TotalRecords") = value
-        End Set
-    End Property
-
-
-
-
-    Protected Sub gvHover_RowCreated(ByVal sender As Object, ByVal e As GridViewRowEventArgs)
-        'Add CSS class on header row.
-        If (e.Row.RowType = DataControlRowType.Header) Then
-            e.Row.CssClass = "header"
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If (Session("UserName") Is Nothing) Then
+            Response.Redirect("~/SessionExpired.aspx")
         End If
-        'Add CSS class on normal row.
-        If ((e.Row.RowType = DataControlRowType.DataRow) _
-                    AndAlso (e.Row.RowState = DataControlRowState.Normal)) Then
-            e.Row.CssClass = "normal"
+
+        Me.Form.DefaultButton = Me.btnSubmit.UniqueID
+
+        If Not IsPostBack Then
+            Refresh()
+            Fillcombo()
+            GridViewLST.DataBind()
         End If
-        'Add CSS class on alternate row.
-        If ((e.Row.RowType = DataControlRowType.DataRow) _
-                    AndAlso (e.Row.RowState = DataControlRowState.Alternate)) Then
-            e.Row.CssClass = "alternate"
-        End If
+        GridChkbox()
     End Sub
 
     Private Sub Refresh()
@@ -99,103 +70,68 @@ Partial Class JobEntrySearch
         End Try
     End Sub
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If (Session("UserName") Is Nothing) Then
-            Response.Redirect("~/SessionExpired.aspx")
-        End If
-
-        Me.Form.DefaultButton = Me.btnSubmit.UniqueID
-
-        If Not IsPostBack Then
-            Refresh()
-            Fillcombo()
-            'FillData()
-            CreateGridView()
-        End If
-        GridChkbox()
+    Protected Sub GridViewLST_CustomBindingGetDataRowCount(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridViewCustomBindingGetDataRowCountEventArgs)
+        Dim totalRecords As Integer = 0
+        GetJobData(0, 0, totalRecords, True)
+        e.RowCount = totalRecords
     End Sub
 
-    Private Sub CreateGridView()
-        GridViewLST.SettingsBehavior.AllowFocusedRow = True
-        
-        Dim pageSize As Integer = GridViewLST.SettingsPager.PageSize
-        Dim dt As DataTable = CreateData(CurrentPage, pageSize)
-        
-        GridViewLST.DataSource = dt
-        GridViewLST.DataBind()
-
-        ASPxWebControl.GlobalThemeBaseColor = "#4796CE"
+    Protected Sub GridViewLST_CustomBindingGetData(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridViewCustomBindingGetDataEventArgs)
+        Dim totalRecords As Integer = 0
+        e.Data = GetJobData(e.StartDataRowIndex / e.DataRowCount + 1, e.DataRowCount, totalRecords, False)
     End Sub
 
-    Private Function CreateData(Optional pageNumber As Integer = 1, Optional pageSize As Integer = 15) As DataTable
+    Private Function GetJobData(ByVal pageNumber As Integer, ByVal pageSize As Integer, ByRef totalRecords As Integer, ByVal isCountOnly As Boolean) As DataTable
         Dim dt As New DataTable()
         Using con As New SqlConnection(thisConnectionString)
             Using com As New SqlCommand("Sp_jobentry_GetData", con)
                 com.CommandType = CommandType.StoredProcedure
-                com.Parameters.AddWithValue("@jobid", If(String.IsNullOrEmpty(txtJobId.Text), "", txtJobId.Text))
-                com.Parameters.AddWithValue("@jobname", If(String.IsNullOrEmpty(txtJobName.Text), "", txtJobName.Text))
-                com.Parameters.AddWithValue("@intcode", If(String.IsNullOrEmpty(txtInternalCode.Text), "", txtInternalCode.Text))
-                com.Parameters.AddWithValue("@prioirty", If(String.IsNullOrEmpty(ddlprioirty.SelectedValue), "", ddlprioirty.SelectedValue))
-                com.Parameters.AddWithValue("@assignedto", If(String.IsNullOrEmpty(ddlassignedto.SelectedValue), "", ddlassignedto.SelectedValue))
-                com.Parameters.AddWithValue("@cuscode", If(String.IsNullOrEmpty(ddlcuscode.SelectedValue), "", ddlcuscode.SelectedValue))
-                com.Parameters.AddWithValue("@jobcreatedt", If(String.IsNullOrEmpty(txtjobcreatedt.Text), "", txtjobcreatedt.Text))
-                com.Parameters.AddWithValue("@ticketno", If(String.IsNullOrEmpty(txtticketno.Text), "", txtticketno.Text))
+                com.Parameters.AddWithValue("@jobid", If(String.IsNullOrEmpty(txtJobId.Text), DBNull.Value, txtJobId.Text))
+                com.Parameters.AddWithValue("@jobname", If(String.IsNullOrEmpty(txtJobName.Text),  DBNull.Value, txtJobName.Text))
+                com.Parameters.AddWithValue("@intcode", If(String.IsNullOrEmpty(txtInternalCode.Text),  DBNull.Value, txtInternalCode.Text))
+                com.Parameters.AddWithValue("@prioirty", If(String.IsNullOrEmpty(ddlprioirty.SelectedValue),  DBNull.Value, ddlprioirty.SelectedValue))
+                com.Parameters.AddWithValue("@assignedto", If(String.IsNullOrEmpty(ddlassignedto.SelectedValue),  DBNull.Value, ddlassignedto.SelectedValue))
+                com.Parameters.AddWithValue("@cuscode", If(String.IsNullOrEmpty(ddlcuscode.SelectedValue),  DBNull.Value, ddlcuscode.SelectedValue))
+                com.Parameters.AddWithValue("@jobcreatedt", If(String.IsNullOrEmpty(txtjobcreatedt.Text),  DBNull.Value, txtjobcreatedt.Text))
+                com.Parameters.AddWithValue("@ticketno", If(String.IsNullOrEmpty(txtticketno.Text),  DBNull.Value, txtticketno.Text))
                 com.Parameters.AddWithValue("@Flag", "A")
-                com.Parameters.AddWithValue("@empcd", If(Session.Item("UserID") Is Nothing, "", Trim(Session.Item("UserID").ToString())))
-                com.Parameters.AddWithValue("@status", "")
-                com.Parameters.AddWithValue("@PageNumber", pageNumber)
-                com.Parameters.AddWithValue("@PageSize", pageSize)
+                com.Parameters.AddWithValue("@empcd", If(Session.Item("UserID") Is Nothing,  DBNull.Value, Trim(Session.Item("UserID").ToString())))
+                com.Parameters.AddWithValue("@status", DBNull.Value)
+
+                If isCountOnly Then
+                    com.Parameters.AddWithValue("@PageNumber", 1)
+                    com.Parameters.AddWithValue("@PageSize", 0)
+                Else
+                    com.Parameters.AddWithValue("@PageNumber", pageNumber)
+                    com.Parameters.AddWithValue("@PageSize", pageSize)
+                End If
 
                 Dim totalRecordsParam As New SqlParameter("@TotalRecords", SqlDbType.Int)
                 totalRecordsParam.Direction = ParameterDirection.Output
                 com.Parameters.Add(totalRecordsParam)
 
                 con.Open()
-                dt.Load(com.ExecuteReader())
+                If isCountOnly Then
+                    com.ExecuteNonQuery()
+                Else
+                    dt.Load(com.ExecuteReader())
+                End If
 
                 If totalRecordsParam.Value IsNot DBNull.Value Then
-                    TotalRecords = Convert.ToInt32(totalRecordsParam.Value)
-                Else
-                    TotalRecords = 0
+                    totalRecords = Convert.ToInt32(totalRecordsParam.Value)
                 End If
-                CurrentPage = pageNumber
             End Using
         End Using
         Return dt
     End Function
 
     Protected Sub ASPxGridView1_CustomCallback(ByVal sender As Object, ByVal e As ASPxGridViewCustomCallbackEventArgs)
-        'GridViewLST.Columns.Clear()
-        'GridViewLST.AutoGenerateColumns = False
-        'GridViewLST.DataBind()
+        GridViewLST.DataBind()
     End Sub
-
-    Protected Sub ASPxGridView1_DataBinding(ByVal sender As Object, ByVal e As EventArgs)
-        Dim pageSize As Integer = GridViewLST.SettingsPager.PageSize
-        Dim pageIndex As Integer = GridViewLST.PageIndex
-        
-        Dim dt As DataTable = CreateData(pageIndex + 1, pageSize)
-        GridViewLST.DataSource = dt
-        GridViewLST.VirtualItemCount = TotalRecords
-    End Sub
-
-    Protected Sub ASPxGridView1_PageIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
-        Dim grid As ASPxGridView = TryCast(sender, ASPxGridView)
-        If grid IsNot Nothing Then
-            CurrentPage = grid.PageIndex + 1
-            CreateGridView()
-        End If
-    End Sub
-
-    ''Protected Sub Application_PreRequestHandlerExecute(ByVal sender As Object, ByVal e As EventArgs)
-    ''    DevExpress.Web.ASPxWebControl.GlobalThemeBaseColor = "Red"
-    ''    DevExpress.Web.ASPxWebControl.GlobalThemeFont = "30px 'Calibri'"
-    ''End Sub
 
     Protected Sub btnEditEntry_Click(ByVal sender As Object, ByVal e As EventArgs)
         Dim button As ASPxButton = TryCast(sender, ASPxButton)
         Dim container As GridViewDataRowTemplateContainer = TryCast(button.NamingContainer, GridViewDataRowTemplateContainer)
-        Dim visibleIndex As Integer = container.VisibleIndex
         Dim keyValue As Object = container.KeyValue
         Dim roomName As String = DataBinder.Eval(container.DataItem, "jobid").ToString()
         If Trim(roomName) <> "" Then
@@ -203,16 +139,13 @@ Partial Class JobEntrySearch
         End If
     End Sub
 
-
-
     Protected Sub btnSubmit_Click(sender As Object, e As System.EventArgs) Handles btnSubmit.Click
-        CreateGridView()
+        GridViewLST.DataBind()
     End Sub
 
     Protected Sub btnAddGP_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Response.Redirect("JobEntry.aspx")
     End Sub
-
 
     Private Sub GridChkbox()
         Dim filter As String = True
