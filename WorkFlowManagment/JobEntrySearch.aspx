@@ -119,7 +119,25 @@
             </div>
 
         </div>
-
+        <asp:ObjectDataSource ID="JobDataSource" runat="server"
+            TypeName="JobEntrySearchDataSource"
+            SelectMethod="GetJobData"
+            SelectCountMethod="GetJobDataCount"
+            EnablePaging="true"
+            MaximumRowsParameterName="maximumRows"
+            StartRowIndexParameterName="startRowIndex">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="txtJobId" Name="jobid" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="txtJobName" Name="jobname" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="txtInternalCode" Name="intcode" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="ddlprioirty" Name="prioirty" PropertyName="SelectedValue" Type="String" />
+                <asp:ControlParameter ControlID="ddlassignedto" Name="assignedto" PropertyName="SelectedValue" Type="String" />
+                <asp:ControlParameter ControlID="ddlcuscode" Name="cuscode" PropertyName="SelectedValue" Type="String" />
+                <asp:ControlParameter ControlID="txtjobcreatedt" Name="jobcreatedt" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="txtticketno" Name="ticketno" PropertyName="Text" Type="String" />
+                <asp:SessionParameter Name="empcd" SessionField="UserID" Type="String" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
 
         <div class="">
             <div class="card">
@@ -129,10 +147,8 @@
                             <ContentTemplate>
 
                                 <dx:ASPxGridView ID="GridViewLST" runat="server" AutoGenerateColumns="False"
+                                    DataSourceID="JobDataSource"
                                     EnableViewState="True" KeyFieldName="jobid"
-                                    OnCustomCallback="ASPxGridView1_CustomCallback"
-                                    OnDataBinding="ASPxGridView1_DataBinding"
-                                    OnPageIndexChanged="ASPxGridView1_PageIndexChanged"
                                     Theme="Metropolis"
                                     Width="100%">
                                     <SettingsBehavior AllowFocusedRow="True" ProcessSelectionChangedOnServer="True" />
@@ -255,4 +271,3 @@
 
     </div>
 </asp:Content>
-
