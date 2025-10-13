@@ -144,7 +144,7 @@
                                         <AdaptiveDetailLayoutProperties ColCount="1">
                                         </AdaptiveDetailLayoutProperties>
                                     </SettingsAdaptivity>
-                                    <SettingsPager PageSize="15" Mode="ShowNumericButtons">
+                                    <SettingsPager PageSize="15">
                                         <PageSizeItemSettings Items="15, 25, 35, 45, 55, 75, 100" Visible="true" />
                                         <PageSizeItemSettings Items="15, 25, 35, 45, 55, 75, 100" Visible="True">
                                         </PageSizeItemSettings>
