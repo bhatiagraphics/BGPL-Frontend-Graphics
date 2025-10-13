@@ -1730,6 +1730,31 @@ Namespace FOODERPWEB.Class
                 Throw ex
             End Try
         End Function
+        Public Shared Function GetJobEntryLogData(ByVal jobid As String, ByVal pageNumber As Integer, ByVal pageSize As Integer, ByRef totalRecords As Integer) As DataTable
+            Dim dt As New DataTable()
+            Using con As New SqlConnection(GetConnection().ConnectionString)
+                Using com As New SqlCommand("Sp_jobentry_log_GetData", con)
+                    com.CommandType = CommandType.StoredProcedure
+                    com.Parameters.AddWithValue("@jobid", jobid)
+                    com.Parameters.AddWithValue("@PageNumber", pageNumber)
+                    com.Parameters.AddWithValue("@PageSize", pageSize)
+
+                    Dim totalRecordsParam As New SqlParameter("@TotalRecords", SqlDbType.Int)
+                    totalRecordsParam.Direction = ParameterDirection.Output
+                    com.Parameters.Add(totalRecordsParam)
+
+                    con.Open()
+                    dt.Load(com.ExecuteReader())
+
+                    If totalRecordsParam.Value IsNot DBNull.Value Then
+                        totalRecords = Convert.ToInt32(totalRecordsParam.Value)
+                    Else
+                        totalRecords = 0
+                    End If
+                End Using
+            End Using
+            Return dt
+        End Function
     End Class
 
 

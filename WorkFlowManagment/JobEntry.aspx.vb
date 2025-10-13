@@ -197,6 +197,7 @@ Partial Class JobEntry
                     txtjobid.Text = Trim(Request.QueryString("docno"))
                     DisplayData(txtjobid.Text)
                     txtjobcreatedt.Focus()
+                    FillData()
                 End If
                 Set_UserAccessRights()
 
@@ -333,8 +334,6 @@ Partial Class JobEntry
                 Else
                     btnRevoke.Visible = False
                 End If
-
-                FillData()
 
             End If
         Catch ex As Exception
@@ -2211,20 +2210,28 @@ Partial Class JobEntry
     End Sub
 
 
-    Private Sub FillData()
+    Private Sub FillData(Optional pageIndex As Integer = 0)
         Try
+            Dim pageSize As Integer = gv1.PageSize
             ViewState("SortExpr") = sSortExp
-            Dim dt1 As DataTable
-            Dim objDas As New DBAccess
-            dt1 = objDas.GetDataTable("exec Sp_jobentry_log_GetData '" & Trim(hdnJobId.Value) & "'")
+            Dim totalRecords As Integer = 0
+
+            ' Get the data for the current page
+            Dim dt1 As DataTable = clsJobEntry.GetJobEntryLogData(Trim(hdnJobId.Value), pageIndex + 1, pageSize, totalRecords)
+
             gv1.DataSource = dt1
-            gv1.PageIndex = iPage
+            gv1.PageIndex = pageIndex
+            gv1.VirtualItemCount = totalRecords
             gv1.DataBind()
 
         Catch ex As Exception
             Dim myscript As String = "alert('" & ex.Message & "');"
             Page.ClientScript.RegisterStartupScript(Me.GetType(), "myscript", myscript, True)
         End Try
+    End Sub
+
+    Protected Sub gv1_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
+        FillData(e.NewPageIndex)
     End Sub
 
 
