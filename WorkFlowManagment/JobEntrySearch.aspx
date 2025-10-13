@@ -131,8 +131,8 @@
                                 <dx:ASPxGridView ID="GridViewLST" runat="server" AutoGenerateColumns="False"
                                     EnableViewState="True" KeyFieldName="jobid"
                                     OnCustomCallback="ASPxGridView1_CustomCallback"
-                                    OnDataBinding="ASPxGridView1_DataBinding"
-                                    OnPageIndexChanged="ASPxGridView1_PageIndexChanged"
+                                    OnCustomBindingGetDataRowCount="GridViewLST_CustomBindingGetDataRowCount"
+                                    OnCustomBindingGetData="GridViewLST_CustomBindingGetData"
                                     Theme="Metropolis"
                                     Width="100%">
                                     <SettingsBehavior AllowFocusedRow="True" ProcessSelectionChangedOnServer="True" />
@@ -144,7 +144,7 @@
                                         <AdaptiveDetailLayoutProperties ColCount="1">
                                         </AdaptiveDetailLayoutProperties>
                                     </SettingsAdaptivity>
-                                    <SettingsPager PageSize="15">
+                                    <SettingsPager PageSize="15" Mode="ShowNumericButtons">
                                         <PageSizeItemSettings Items="15, 25, 35, 45, 55, 75, 100" Visible="true" />
                                         <PageSizeItemSettings Items="15, 25, 35, 45, 55, 75, 100" Visible="True">
                                         </PageSizeItemSettings>
