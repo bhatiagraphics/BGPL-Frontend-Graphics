@@ -197,6 +197,7 @@ Partial Class JobEntry
                     txtjobid.Text = Trim(Request.QueryString("docno"))
                     DisplayData(txtjobid.Text)
                     txtjobcreatedt.Focus()
+                    FillData()
                 End If
                 Set_UserAccessRights()
 
@@ -333,8 +334,6 @@ Partial Class JobEntry
                 Else
                     btnRevoke.Visible = False
                 End If
-
-                FillData()
 
             End If
         Catch ex As Exception
@@ -2213,28 +2212,12 @@ Partial Class JobEntry
 
     Private Sub FillData(Optional pageIndex As Integer = 0)
         Try
-            Dim pageSize As Integer = 10 ' Or get from a control
-
+            Dim pageSize As Integer = gv1.PageSize
             ViewState("SortExpr") = sSortExp
-            Dim dt1 As DataTable
-            Dim objDas As New DBAccess
-
             Dim totalRecords As Integer = 0
-            Dim params As New List(Of SqlParameter)()
-            params.Add(New SqlParameter("@jobid", Trim(hdnJobId.Value)))
-            params.Add(New SqlParameter("@PageNumber", pageIndex + 1))
-            params.Add(New SqlParameter("@PageSize", pageSize))
 
-            Dim totalRecordsParam As New SqlParameter("@TotalRecords", SqlDbType.Int)
-            totalRecordsParam.Direction = ParameterDirection.Output
-            params.Add(totalRecordsParam)
-
-            ' Assuming Sp_jobentry_log_GetData is updated to support pagination
-            dt1 = objDas.GetDataTableWithParams("Sp_jobentry_log_GetData", params.ToArray())
-
-            If totalRecordsParam.Value IsNot DBNull.Value Then
-                totalRecords = Convert.ToInt32(totalRecordsParam.Value)
-            End If
+            ' Get the data for the current page
+            Dim dt1 As DataTable = clsJobEntry.GetJobEntryLogData(Trim(hdnJobId.Value), pageIndex + 1, pageSize, totalRecords)
 
             gv1.DataSource = dt1
             gv1.PageIndex = pageIndex
