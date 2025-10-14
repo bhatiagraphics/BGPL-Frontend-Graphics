@@ -266,6 +266,19 @@ Namespace AGPLERPWEB.DAL
             Dim da As SqlDataAdapter = Nothing
             Dim dt As DataTable = Nothing
             Dim cnn As New SqlConnection()
+
+            ' --- Diagnostic logging block ---
+            Try
+                Dim logFile As String = "D:\home\LogFiles\DBAccess_log.txt"
+                Dim logMsg As String = "---- GetDataTable called ----" & vbCrLf &
+                                    "Time: " & DateTime.Now.ToString() & vbCrLf &
+                                    "Connection String: " & sCon & vbCrLf &
+                                    "Query: " & SQL & vbCrLf
+                System.IO.File.AppendAllText(logFile, logMsg)
+            Catch ex As Exception
+            End Try
+            ' --------------------------------
+
             Try
                 cnn.ConnectionString = sCon
                 Dim cmd1 As New SqlClient.SqlCommand(SQL, cnn)
@@ -274,15 +287,30 @@ Namespace AGPLERPWEB.DAL
                 da.SelectCommand = cmd1
                 dt = New DataTable()
                 da.Fill(dt)
+
+                ' --- Log number of rows fetched ---
+                Try
+                    System.IO.File.AppendAllText("D:\home\LogFiles\DBAccess_log.txt",
+                        "Rows returned: " & dt.Rows.Count.ToString() & vbCrLf & vbCrLf)
+                Catch
+                End Try
+                ' -----------------------------------
+
             Catch ex As Exception
                 If (handleErrors) Then
                     strLastError = ex.Message
                 Else
+                    Try
+                        System.IO.File.AppendAllText("D:\home\LogFiles\DBAccess_log.txt", 
+                            "Error: " & ex.Message & vbCrLf & vbCrLf)
+                    Catch
+                    End Try
                     Throw
                 End If
             End Try
             Return dt
         End Function
+
 
         Public Function ExecuteSQL(ByVal sSQL As String) As Integer
             ErrorInSO = ""
