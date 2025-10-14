@@ -1,4 +1,4 @@
-﻿Imports Microsoft.VisualBasic
+Imports Microsoft.VisualBasic
 Imports System
 Imports System.Data
 Imports System.Data.SqlClient
@@ -93,13 +93,21 @@ Namespace AGPLERPWEB.DAL
         End Sub
 
         Public Sub New()
-            Dim connectionString As String =
-                Environment.GetEnvironmentVariable("ConStrFood") _
-                OrElse Environment.GetEnvironmentVariable("ConStr") _
-                OrElse ConfigurationManager.ConnectionStrings("ConStrFood")?.ConnectionString _
-                OrElse ConfigurationManager.ConnectionStrings("ConStr")?.ConnectionString _
-                OrElse ConfigurationManager.AppSettings("ConStrFood") _
-                OrElse ConfigurationManager.AppSettings("ConStr")
+            Dim connectionString As String = Nothing
+
+            If Environment.GetEnvironmentVariable("ConStrFood") IsNot Nothing Then
+                connectionString = Environment.GetEnvironmentVariable("ConStrFood")
+            ElseIf Environment.GetEnvironmentVariable("ConStr") IsNot Nothing Then
+                connectionString = Environment.GetEnvironmentVariable("ConStr")
+            ElseIf ConfigurationManager.ConnectionStrings("ConStrFood") IsNot Nothing Then
+                connectionString = ConfigurationManager.ConnectionStrings("ConStrFood").ConnectionString
+            ElseIf ConfigurationManager.ConnectionStrings("ConStr") IsNot Nothing Then
+                connectionString = ConfigurationManager.ConnectionStrings("ConStr").ConnectionString
+            ElseIf ConfigurationManager.AppSettings("ConStrFood") IsNot Nothing Then
+                connectionString = ConfigurationManager.AppSettings("ConStrFood")
+            ElseIf ConfigurationManager.AppSettings("ConStr") IsNot Nothing Then
+                connectionString = ConfigurationManager.AppSettings("ConStr")
+            End If
 
             sCon = connectionString
 
@@ -108,6 +116,7 @@ Namespace AGPLERPWEB.DAL
             cmd.Connection = cnn
             cmd.CommandType = CommandType.StoredProcedure
         End Sub
+
 
 
         Public Function ExecuteReader() As IDataReader
@@ -484,16 +493,25 @@ Namespace AGPLERPWEB.DAL
         End Function
 
         Public Shared Function GetConnection() As SqlConnection
-            Dim connectionString As String =
-                Environment.GetEnvironmentVariable("ConStrFood") _
-                OrElse Environment.GetEnvironmentVariable("ConStr") _
-                OrElse ConfigurationManager.ConnectionStrings("ConStrFood")?.ConnectionString _
-                OrElse ConfigurationManager.ConnectionStrings("ConStr")?.ConnectionString _
-                OrElse ConfigurationManager.AppSettings("ConStrFood") _
-                OrElse ConfigurationManager.AppSettings("ConStr")
+            Dim connectionString As String = Nothing
+
+            If Environment.GetEnvironmentVariable("ConStrFood") IsNot Nothing Then
+                connectionString = Environment.GetEnvironmentVariable("ConStrFood")
+            ElseIf Environment.GetEnvironmentVariable("ConStr") IsNot Nothing Then
+                connectionString = Environment.GetEnvironmentVariable("ConStr")
+            ElseIf ConfigurationManager.ConnectionStrings("ConStrFood") IsNot Nothing Then
+                connectionString = ConfigurationManager.ConnectionStrings("ConStrFood").ConnectionString
+            ElseIf ConfigurationManager.ConnectionStrings("ConStr") IsNot Nothing Then
+                connectionString = ConfigurationManager.ConnectionStrings("ConStr").ConnectionString
+            ElseIf ConfigurationManager.AppSettings("ConStrFood") IsNot Nothing Then
+                connectionString = ConfigurationManager.AppSettings("ConStrFood")
+            ElseIf ConfigurationManager.AppSettings("ConStr") IsNot Nothing Then
+                connectionString = ConfigurationManager.AppSettings("ConStr")
+            End If
 
             Return New SqlConnection(connectionString)
         End Function
+
 
         Public Shared Function Find_Value(ByVal tblname As String, ByVal infld As String, ByVal outfld As String, ByVal value As Object) As Object
             Dim con As New SqlConnection
