@@ -76,9 +76,18 @@ BEGIN
         OFFSET (@p_PageNumber - 1) * @p_PageSize ROWS
         FETCH NEXT @p_PageSize ROWS ONLY;';
 
-        DECLARE @pageParamDefinition nvarchar(max) = @paramDefinition + N', @p_PageNumber INT, @p_PageSize INT';
+        DECLARE @pageParamDefinition nvarchar(max) = N'
+        @p_jobid nvarchar(100),
+        @p_jobname nvarchar(100),
+        @p_intcode nvarchar(100),
+        @p_prioirty nvarchar(100),
+        @p_assignedto nvarchar(100),
+        @p_cuscode nvarchar(100),
+        @p_jobcreatedt nvarchar(100),
+        @p_ticketno nvarchar(100),
+        @p_PageNumber INT,
+        @p_PageSize INT';
 
-        -- Correctly pass the @p_TotalRecords parameter as an output parameter
         EXEC sp_executesql @sql, @pageParamDefinition,
             @p_jobid = @jobid,
             @p_jobname = @jobname,
@@ -88,7 +97,6 @@ BEGIN
             @p_cuscode = @cuscode,
             @p_jobcreatedt = @jobcreatedt,
             @p_ticketno = @ticketno,
-            @p_TotalRecords = @TotalRecords OUTPUT,
             @p_PageNumber = @PageNumber,
             @p_PageSize = @PageSize;
     END
