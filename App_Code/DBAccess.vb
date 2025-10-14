@@ -109,8 +109,11 @@ Namespace AGPLERPWEB.DAL
                 connectionString = ConfigurationManager.AppSettings("ConStr")
             End If
 
-            sCon = connectionString
+            ' --- TEMP LOGGING ---
+            System.IO.File.AppendAllText("D:\home\LogFiles\DBAccess_log.txt",
+                $"{DateTime.Now}: ConnectionString = {connectionString}{Environment.NewLine}")
 
+            sCon = connectionString
             Dim cnn As New SqlConnection()
             cnn.ConnectionString = sCon
             cmd.Connection = cnn
