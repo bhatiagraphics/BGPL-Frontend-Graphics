@@ -93,14 +93,22 @@ Namespace AGPLERPWEB.DAL
         End Sub
 
         Public Sub New()
-            Dim objConnectionStringSettings As ConnectionStringSettings
-            objConnectionStringSettings = ConfigurationManager.ConnectionStrings("ConStr")
-            sCon = objConnectionStringSettings.ConnectionString
+            Dim connectionString As String =
+                Environment.GetEnvironmentVariable("ConStrFood") _
+                OrElse Environment.GetEnvironmentVariable("ConStr") _
+                OrElse ConfigurationManager.ConnectionStrings("ConStrFood")?.ConnectionString _
+                OrElse ConfigurationManager.ConnectionStrings("ConStr")?.ConnectionString _
+                OrElse ConfigurationManager.AppSettings("ConStrFood") _
+                OrElse ConfigurationManager.AppSettings("ConStr")
+
+            sCon = connectionString
+
             Dim cnn As New SqlConnection()
             cnn.ConnectionString = sCon
             cmd.Connection = cnn
             cmd.CommandType = CommandType.StoredProcedure
         End Sub
+
 
         Public Function ExecuteReader() As IDataReader
             Dim reader As IDataReader = Nothing
@@ -476,7 +484,15 @@ Namespace AGPLERPWEB.DAL
         End Function
 
         Public Shared Function GetConnection() As SqlConnection
-            Return New SqlConnection(ConfigurationManager.ConnectionStrings("ConStr").ConnectionString)
+            Dim connectionString As String =
+                Environment.GetEnvironmentVariable("ConStrFood") _
+                OrElse Environment.GetEnvironmentVariable("ConStr") _
+                OrElse ConfigurationManager.ConnectionStrings("ConStrFood")?.ConnectionString _
+                OrElse ConfigurationManager.ConnectionStrings("ConStr")?.ConnectionString _
+                OrElse ConfigurationManager.AppSettings("ConStrFood") _
+                OrElse ConfigurationManager.AppSettings("ConStr")
+
+            Return New SqlConnection(connectionString)
         End Function
 
         Public Shared Function Find_Value(ByVal tblname As String, ByVal infld As String, ByVal outfld As String, ByVal value As Object) As Object
