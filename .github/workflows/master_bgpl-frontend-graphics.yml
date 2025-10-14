@@ -1,4 +1,4 @@
-name: Build and deploy ASP.NET Framework app to Azure Web App
+name: Deploy static/published ASP.NET site to Azure Web App
 
 on:
   push:
@@ -6,32 +6,17 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: windows-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v2
-
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2
-
-      - name: Restore NuGet packages
-        run: nuget restore BGPL-Frontend-Graphics.sln  # 👈 replace with your .sln file name
-
-      - name: Build with MSBuild
-        run: msbuild BGPL-Frontend-Graphics.sln /p:Configuration=Release /p:Platform="Any CPU"
-
-      - name: Publish artifacts
-        run: msbuild BGPL-Frontend-Graphics.sln /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(System.DefaultWorkingDirectory)/publish"
-
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'bgpl-frontend-graphics'   # 👈 your Azure App Service name
-          slot-name: 'production'
+          app-name: 'bgpl-frontend-graphics'   # your app service name
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: publish
+          package: .
+
