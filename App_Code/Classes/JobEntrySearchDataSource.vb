@@ -26,6 +26,7 @@ Public Class JobEntrySearchDataSource
         Dim dt As New DataTable()
         Using con As New SqlConnection(thisConnectionString)
             Using com As New SqlCommand("Sp_jobentry_GetData", con)
+                com.CommandTimeout = 300
                 com.CommandType = CommandType.StoredProcedure
                 com.Parameters.AddWithValue("@jobid", If(String.IsNullOrEmpty(jobid), DBNull.Value, jobid))
                 com.Parameters.AddWithValue("@jobname", If(String.IsNullOrEmpty(jobname), DBNull.Value, jobname))

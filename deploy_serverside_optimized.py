@@ -14,7 +14,7 @@ print()
 try:
     print("Connecting to Azure SQL Database...")
     conn = pyodbc.connect(
-        f'DRIVER={{ODBC Driver 17 for SQL Server}};'
+        f'DRIVER={{ODBC Driver 18 for SQL Server}};'
         f'SERVER={server};'
         f'DATABASE={database};'
         f'UID={username};'
@@ -24,8 +24,8 @@ try:
     print("✓ Connected successfully")
     print()
     
-    print("Reading implement_pagination_jobentry_serverside_optimized.sql...")
-    with open('/home/ubuntu/BGPL-Frontend-Graphics/implement_pagination_jobentry_serverside_optimized.sql', 'r') as f:
+    print("Reading update_sp_jobentry_getdata.sql...")
+    with open('update_sp_jobentry_getdata.sql', 'r') as f:
         sql_script = f.read()
     
     print(f"✓ Read {len(sql_script)} characters")

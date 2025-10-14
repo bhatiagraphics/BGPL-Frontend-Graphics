@@ -78,6 +78,7 @@ BEGIN
 
         DECLARE @pageParamDefinition nvarchar(max) = @paramDefinition + N', @p_PageNumber INT, @p_PageSize INT';
 
+        -- Correctly pass the @p_TotalRecords parameter as an output parameter
         EXEC sp_executesql @sql, @pageParamDefinition,
             @p_jobid = @jobid,
             @p_jobname = @jobname,
