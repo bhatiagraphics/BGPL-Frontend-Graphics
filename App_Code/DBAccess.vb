@@ -29,6 +29,40 @@ Namespace AGPLERPWEB.DAL
         Public Shared LocationShortName As String
         Public Shared ProductShortName As String
 
+        ' ---------- NEW: centralized resolver ----------
+        Private Shared Function ResolveConnectionString() As String
+            ' 1) Azure App Service injects connection strings as env vars with prefixes:
+            '    SQLAZURECONNSTR_, SQLCONNSTR_, CUSTOMCONNSTR_
+            Dim envCandidates As String() = {
+                Environment.GetEnvironmentVariable("SQLAZURECONNSTR_ConStrFood"),
+                Environment.GetEnvironmentVariable("SQLCONNSTR_ConStrFood"),
+                Environment.GetEnvironmentVariable("CUSTOMCONNSTR_ConStrFood"),
+                Environment.GetEnvironmentVariable("SQLAZURECONNSTR_ConStr"),
+                Environment.GetEnvironmentVariable("SQLCONNSTR_ConStr"),
+                Environment.GetEnvironmentVariable("CUSTOMCONNSTR_ConStr")
+            }
+            For Each c In envCandidates
+                If Not String.IsNullOrEmpty(c) Then Return c
+            Next
+
+            ' 2) Standard <connectionStrings> fallbacks
+            Dim cs As ConnectionStringSettings
+            cs = ConfigurationManager.ConnectionStrings("ConStrFood")
+            If cs IsNot Nothing AndAlso Not String.IsNullOrEmpty(cs.ConnectionString) Then Return cs.ConnectionString
+            cs = ConfigurationManager.ConnectionStrings("ConStr")
+            If cs IsNot Nothing AndAlso Not String.IsNullOrEmpty(cs.ConnectionString) Then Return cs.ConnectionString
+
+            ' 3) <appSettings> last resort
+            Dim app As String
+            app = ConfigurationManager.AppSettings("ConStrFood")
+            If Not String.IsNullOrEmpty(app) Then Return app
+            app = ConfigurationManager.AppSettings("ConStr")
+            If Not String.IsNullOrEmpty(app) Then Return app
+
+            Return ""
+        End Function
+        ' ------------------------------------------------
+
         Public Shared Function GetCommand() As SqlCommand
             Return New SqlCommand()
         End Function
@@ -64,7 +98,6 @@ Namespace AGPLERPWEB.DAL
                     CompanyCode = res.ToString.Trim
                 End If
             Catch ex As Exception
-                'MsgBox(ex.Message)
                 Throw ex
             Finally
                 con.Close()
@@ -93,41 +126,36 @@ Namespace AGPLERPWEB.DAL
         End Sub
 
         Public Sub New()
-            Dim connectionString As String = Nothing
-
-            If Environment.GetEnvironmentVariable("ConStrFood") IsNot Nothing Then
-                connectionString = Environment.GetEnvironmentVariable("ConStrFood")
-            ElseIf Environment.GetEnvironmentVariable("ConStr") IsNot Nothing Then
-                connectionString = Environment.GetEnvironmentVariable("ConStr")
-            ElseIf ConfigurationManager.ConnectionStrings("ConStrFood") IsNot Nothing Then
-                connectionString = ConfigurationManager.ConnectionStrings("ConStrFood").ConnectionString
-            ElseIf ConfigurationManager.ConnectionStrings("ConStr") IsNot Nothing Then
-                connectionString = ConfigurationManager.ConnectionStrings("ConStr").ConnectionString
-            ElseIf ConfigurationManager.AppSettings("ConStrFood") IsNot Nothing Then
-                connectionString = ConfigurationManager.AppSettings("ConStrFood")
-            ElseIf ConfigurationManager.AppSettings("ConStr") IsNot Nothing Then
-                connectionString = ConfigurationManager.AppSettings("ConStr")
-            End If
-
-            ' --- TEMP LOGGING ---
-            System.IO.File.AppendAllText("D:\home\LogFiles\DBAccess_log.txt",
-                $"{DateTime.Now}: ConnectionString = {connectionString}{Environment.NewLine}")
-
+            Dim connectionString As String = ResolveConnectionString()
             sCon = connectionString
+
             Dim cnn As New SqlConnection()
             cnn.ConnectionString = sCon
             cmd.Connection = cnn
             cmd.CommandType = CommandType.StoredProcedure
+
+            ' ---- Optional: lightweight diagnostics to LogFiles ----
+            Try
+                Dim logDir As String = "D:\home\LogFiles"
+                If Not Directory.Exists(logDir) Then Directory.CreateDirectory(logDir)
+                Dim logFile As String = Path.Combine(logDir, "DBAccess_log.txt")
+                File.AppendAllText(
+                    logFile,
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") &
+                    " DBAccess.New() ConnectionString = " &
+                    If(String.IsNullOrEmpty(connectionString), "<EMPTY>", "<RESOLVED>") &
+                    Environment.NewLine
+                )
+            Catch
+                ' ignore logging errors
+            End Try
         End Sub
-
-
 
         Public Function ExecuteReader() As IDataReader
             Dim reader As IDataReader = Nothing
             Try
                 Me.Open()
                 reader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
-                'Me.Close()
             Catch ex As Exception
                 If handleErrors Then
                     strLastError = ex.Message
@@ -249,7 +277,6 @@ Namespace AGPLERPWEB.DAL
             Return dt
         End Function
 
-
         Public Function ExecuteDataTable(ByVal commandtext As String) As DataTable
             Dim dt As DataTable = Nothing
             Try
@@ -270,17 +297,19 @@ Namespace AGPLERPWEB.DAL
             Dim dt As DataTable = Nothing
             Dim cnn As New SqlConnection()
 
-            ' --- Diagnostic logging block ---
+            ' --- Simple diagnostics ---
             Try
-                Dim logFile As String = "D:\home\LogFiles\DBAccess_log.txt"
-                Dim logMsg As String = "---- GetDataTable called ----" & vbCrLf &
-                                    "Time: " & DateTime.Now.ToString() & vbCrLf &
-                                    "Connection String: " & sCon & vbCrLf &
-                                    "Query: " & SQL & vbCrLf
-                System.IO.File.AppendAllText(logFile, logMsg)
-            Catch ex As Exception
+                Dim logDir As String = "D:\home\LogFiles"
+                If Not Directory.Exists(logDir) Then Directory.CreateDirectory(logDir)
+                Dim logFile As String = Path.Combine(logDir, "DBAccess_log.txt")
+                Dim logMsg As String = "---- GetDataTable ----" & vbCrLf &
+                                       "Time: " & DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") & vbCrLf &
+                                       "Conn empty? " & If(String.IsNullOrEmpty(sCon), "YES", "NO") & vbCrLf &
+                                       "Query: " & SQL & vbCrLf
+                File.AppendAllText(logFile, logMsg)
+            Catch
             End Try
-            ' --------------------------------
+            ' --------------------------
 
             Try
                 cnn.ConnectionString = sCon
@@ -291,21 +320,19 @@ Namespace AGPLERPWEB.DAL
                 dt = New DataTable()
                 da.Fill(dt)
 
-                ' --- Log number of rows fetched ---
+                ' Log count
                 Try
-                    System.IO.File.AppendAllText("D:\home\LogFiles\DBAccess_log.txt",
-                        "Rows returned: " & dt.Rows.Count.ToString() & vbCrLf & vbCrLf)
+                    Dim logFile As String = "D:\home\LogFiles\DBAccess_log.txt"
+                    File.AppendAllText(logFile, "Rows returned: " & dt.Rows.Count.ToString() & vbCrLf & vbCrLf)
                 Catch
                 End Try
-                ' -----------------------------------
 
             Catch ex As Exception
                 If (handleErrors) Then
                     strLastError = ex.Message
                 Else
                     Try
-                        System.IO.File.AppendAllText("D:\home\LogFiles\DBAccess_log.txt", 
-                            "Error: " & ex.Message & vbCrLf & vbCrLf)
+                        File.AppendAllText("D:\home\LogFiles\DBAccess_log.txt", "Error: " & ex.Message & vbCrLf & vbCrLf)
                     Catch
                     End Try
                     Throw
@@ -313,7 +340,6 @@ Namespace AGPLERPWEB.DAL
             End Try
             Return dt
         End Function
-
 
         Public Function ExecuteSQL(ByVal sSQL As String) As Integer
             ErrorInSO = ""
@@ -474,7 +500,6 @@ Namespace AGPLERPWEB.DAL
                     tran.Rollback()
                 End If
             Catch ex As Exception
-
             End Try
             If cmd.Connection IsNot Nothing And cmd.Connection.State = ConnectionState.Open Then
                 cmd.Connection.Close()
@@ -510,39 +535,28 @@ Namespace AGPLERPWEB.DAL
                 con.Open()
                 com.ExecuteNonQuery()
             Catch ex As Exception
-                MsgBox(ex.Message)
+                ' avoid MsgBox on server; optionally log
+                Try
+                    File.AppendAllText("D:\home\LogFiles\DBAccess_log.txt", "FindRecord_Value error: " & ex.Message & vbCrLf)
+                Catch
+                End Try
             Finally
                 con.Close()
                 con = Nothing
                 com = Nothing
             End Try
             obj = pr.Value
-            If IsDBNull(obj) = True Or IsNothing(obj.ToString) Then
+            If IsDBNull(obj) = True Or IsNothing(obj) OrElse (TypeOf obj Is String AndAlso DirectCast(obj, String) Is Nothing) Then
                 obj = Nothing
             End If
             Return obj
         End Function
 
+        ' ---------- UPDATED to use resolver ----------
         Public Shared Function GetConnection() As SqlConnection
-            Dim connectionString As String = Nothing
-
-            If Environment.GetEnvironmentVariable("ConStrFood") IsNot Nothing Then
-                connectionString = Environment.GetEnvironmentVariable("ConStrFood")
-            ElseIf Environment.GetEnvironmentVariable("ConStr") IsNot Nothing Then
-                connectionString = Environment.GetEnvironmentVariable("ConStr")
-            ElseIf ConfigurationManager.ConnectionStrings("ConStrFood") IsNot Nothing Then
-                connectionString = ConfigurationManager.ConnectionStrings("ConStrFood").ConnectionString
-            ElseIf ConfigurationManager.ConnectionStrings("ConStr") IsNot Nothing Then
-                connectionString = ConfigurationManager.ConnectionStrings("ConStr").ConnectionString
-            ElseIf ConfigurationManager.AppSettings("ConStrFood") IsNot Nothing Then
-                connectionString = ConfigurationManager.AppSettings("ConStrFood")
-            ElseIf ConfigurationManager.AppSettings("ConStr") IsNot Nothing Then
-                connectionString = ConfigurationManager.AppSettings("ConStr")
-            End If
-
-            Return New SqlConnection(connectionString)
+            Return New SqlConnection(ResolveConnectionString())
         End Function
-
+        ' --------------------------------------------
 
         Public Shared Function Find_Value(ByVal tblname As String, ByVal infld As String, ByVal outfld As String, ByVal value As Object) As Object
             Dim con As New SqlConnection
@@ -572,63 +586,21 @@ Namespace AGPLERPWEB.DAL
                 com = Nothing
             End Try
             obj = pr.Value
-            If IsDBNull(obj) = True Or IsNothing(obj.ToString) Then
+            If IsDBNull(obj) = True Or IsNothing(obj) Then
                 obj = Nothing
             End If
             Return obj
         End Function
 
-        'Public Shared Function Find_Value(ByVal Table As String, ByVal Code As String, ByVal Name As String, ByVal value As Object) As Object
-        '    Dim con As New SqlConnection
-        '    Dim com As New SqlCommand
-        '    Dim pr As SqlParameter
-        '    Dim obj As Object
-
-        '    con = GetConnection()
-        '    com = New SqlCommand
-        '    com.Connection = con
-        '    com.CommandType = CommandType.StoredProcedure
-        '    com.CommandText = "ChkDuplicate_sp"
-        '    com.Parameters.AddWithValue("tab", Trim(Table))
-        '    com.Parameters.AddWithValue("code", Trim(Code))
-        '    com.Parameters.AddWithValue("desc", Trim(Name))
-        '    com.Parameters.AddWithValue("para", Trim(value))
-        '    pr = com.Parameters.Add("retval", SqlDbType.VarChar, 500)
-        '    pr.Direction = ParameterDirection.Output
-
-        '    Try
-        '        con.Open()
-        '        com.ExecuteNonQuery()
-        '    Catch ex As Exception
-        '        Throw ex
-        '    Finally
-        '        con.Close()
-        '        con = Nothing
-        '        com = Nothing
-        '    End Try
-
-        '    obj = pr.Value
-        '    If IsDBNull(obj) = True Or IsNothing(obj.ToString) Then
-        '        obj = Nothing
-        '    End If
-
-        '    Return obj
-        'End Function
-
-        '''''''''''''''Report
-
+        ' -------- Report support using the same resolver --------
         Public Sub SetLoginDtls(ByVal report As ReportDocument)
             Dim connection As IConnectionInfo
-            Dim conStr As String = System.Web.Configuration.WebConfigurationManager.ConnectionStrings("ConStr").ToString
+            Dim conStr As String = ResolveConnectionString()
             GetConnectionDtls(conStr)
-            ' Change the server name and database in main reports
             For Each connection In report.DataSourceConnections
-                '    'If (String.Compare(LCase(connection.ServerName), LCase(newServerName), True) = -1 And String.Compare(LCase(connection.DatabaseName), LCase(newDatabaseName), True) = 0) Then
-                '    ' SetConnection can also be used to set new logon and new database table
-                'report.DataSourceConnections(connection.ServerName, connection.DatabaseName).SetConnection(newServerName, newDatabaseName, True)
                 report.DataSourceConnections(connection.ServerName, connection.DatabaseName).SetConnection(newServerName, newDatabaseName, userID, password)
-                '    'End If
             Next
         End Sub
+        ' -------------------------------------------------------
     End Class
 End Namespace
