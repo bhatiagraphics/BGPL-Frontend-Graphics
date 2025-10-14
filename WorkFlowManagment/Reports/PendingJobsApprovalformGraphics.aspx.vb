@@ -222,8 +222,8 @@ Partial Class PendingJobsApprovalformGraphics
         Using con As New SqlConnection(thisConnectionString)
             Using cmd As New SqlCommand("Pending_Jobs_Sentto_Graphic_sp", con)
                 cmd.CommandType = CommandType.StoredProcedure
-                ' Set the command timeout to 300 seconds (5 minutes)
-                cmd.CommandTimeout = 300
+                ' Set the command timeout to 600 seconds (10 minutes)
+                cmd.CommandTimeout = 600
 
                 cmd.Parameters.AddWithValue("@fromdt", txtfromdt.Text)
                 cmd.Parameters.AddWithValue("@todt", txttodt.Text)
