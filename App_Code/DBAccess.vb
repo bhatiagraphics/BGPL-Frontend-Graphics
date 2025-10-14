@@ -9,7 +9,7 @@ Imports System.Net.Mail
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
 
-Namespace AGPLERPWEB.DAL
+Namespace FOODERPWEB.DAL
     Public Class DBAccess
         Private cmd As IDbCommand = New SqlCommand()
         Private tran As IDbTransaction = Nothing
