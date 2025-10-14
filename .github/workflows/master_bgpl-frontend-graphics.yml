@@ -1,66 +1,37 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy ASP app to Azure Web App - bgpl-frontend-graphics
+name: Build and deploy ASP.NET Framework app to Azure Web App
 
 on:
   push:
     branches:
       - master
-  workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: windows-latest
-    permissions:
-      contents: read #This is required for actions/checkout
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Setup MSBuild path
-        uses: microsoft/setup-msbuild@v1.0.2
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
 
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1.0.5
+        uses: NuGet/setup-nuget@v2
 
       - name: Restore NuGet packages
-        run: nuget restore
+        run: nuget restore BGPL-Frontend-Graphics.sln  # 👈 replace with your .sln file name
 
-      - name: Publish to folder
-        run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
+      - name: Build with MSBuild
+        run: msbuild BGPL-Frontend-Graphics.sln /p:Configuration=Release /p:Platform="Any CPU"
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: ASP-app
-          path: '/published/**'
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: ASP-app
-      
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0F0A0316900E44CFB7A9C2ECE88D5ABA }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_77797C2FFA9D4F1D858F5E1772E41F10 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1A077A9AAFBA41ADB612F68710CA2B3E }}
+      - name: Publish artifacts
+        run: msbuild BGPL-Frontend-Graphics.sln /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(System.DefaultWorkingDirectory)/publish"
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'bgpl-frontend-graphics'
-          slot-name: 'Production'
-          package: .
-          
+          app-name: 'bgpl-frontend-graphics'   # 👈 your Azure App Service name
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: publish
