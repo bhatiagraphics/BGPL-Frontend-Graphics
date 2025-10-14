@@ -19,6 +19,7 @@ Partial Class JobEntrySearch
         If Not IsPostBack Then
             Refresh()
             Fillcombo()
+            GridViewLST.DataBind()
         End If
         GridChkbox()
     End Sub
