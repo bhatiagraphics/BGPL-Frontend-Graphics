@@ -1,86 +1,88 @@
-﻿Imports System.Data
+Imports System
+Imports System.Data
 Imports System.Data.SqlClient
-Imports FOODERPWEB.DAL
-Imports FOODERPWEB.Class
-Imports CrystalDecisions.CrystalReports.Engine
-Imports CrystalDecisions.Shared
-Imports DevExpress.Web
+Imports System.Configuration
 
-Partial Class JobEntrySearch
+Partial Class WorkFlowManagement_JobEntrySearch
     Inherits System.Web.UI.Page
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If (Session("UserName") Is Nothing) Then
-            Response.Redirect("~/SessionExpired.aspx")
-        End If
+    Private Const PAGE_SIZE As Integer = 50
+    Private ReadOnly Property ConStr As String
+        Get
+            Return ConfigurationManager.ConnectionStrings("ConStr").ConnectionString
+        End Get
+    End Property
 
-        Me.Form.DefaultButton = Me.btnSubmit.UniqueID
-
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            Refresh()
-            Fillcombo()
-            GridViewLST.DataBind()
+            BindGrid(1)
         End If
-        GridChkbox()
     End Sub
 
-    Private Sub Refresh()
-        ErrorMsg.Text = ""
-        ErrorMsg.Visible = False
+    ' Search button
+    Protected Sub btnSearch_Click(ByVal sender As Object, ByVal e As EventArgs)
+        gvJobs.PageIndex = 0
+        BindGrid(1)
     End Sub
 
-    Private Sub Fillcombo()
+    ' Grid paging (custom paging)
+    Protected Sub gvJobs_PageIndexChanging(ByVal sender As Object, ByVal e As GridViewPageEventArgs)
+        ' GridView is 0-based, our proc expects 1-based
+        Dim pageIndex As Integer = e.NewPageIndex + 1
+        BindGrid(pageIndex)
+    End Sub
+
+    Private Sub BindGrid(ByVal pageIndex As Integer)
+        lblError.Visible = False
+
         Try
-            Dim sSQL As String
-            Dim dt As DataTable
-            Dim objDas As New DBAccess
+            Using con As New SqlConnection(ConStr)
+                Using cmd As New SqlCommand("dbo.usp_GetJobEntriesPaged", con)
+                    cmd.CommandType = CommandType.StoredProcedure
 
-            sSQL = "select ltrim(rtrim(u_id))as u_id,ltrim(rtrim(u_name))as u_name from users order by u_name"
-            dt = objDas.GetDataTable(sSQL)
-            dt.Rows.InsertAt(dt.NewRow, 0)
-            ddlassignedto.DataSource = dt
-            ddlassignedto.DataTextField = "u_name"
-            ddlassignedto.DataValueField = "u_id"
-            ddlassignedto.DataBind()
+                    ' --- Required proc parameters
+                    cmd.Parameters.AddWithValue("@PageIndex", pageIndex)
+                    cmd.Parameters.AddWithValue("@PageSize", PAGE_SIZE)
 
-            sSQL = "select ltrim(rtrim(cuscode))as cuscode,ltrim(rtrim(cusname))as cusname from customer order by cusname"
-            dt = objDas.GetDataTable(sSQL)
-            dt.Rows.InsertAt(dt.NewRow, 0)
-            ddlcuscode.DataSource = dt
-            ddlcuscode.DataTextField = "cusname"
-            ddlcuscode.DataValueField = "cuscode"
-            ddlcuscode.DataBind()
+                    Dim pTotal As New SqlParameter("@TotalRows", SqlDbType.Int)
+                    pTotal.Direction = ParameterDirection.Output
+                    cmd.Parameters.Add(pTotal)
+
+                    ' NOTE:
+                    ' If your procedure supports optional filters (JobIdPart, JobNamePart, INTCodePart, etc.)
+                    ' you can add them here, else leave them out. The UI calls the proc exactly as-is.
+
+                    Dim dt As New DataTable()
+                    Using da As New SqlDataAdapter(cmd)
+                        con.Open()
+                        da.Fill(dt)
+                    End Using
+
+                    ' Bind page's rows
+                    gvJobs.DataSource = dt
+                    gvJobs.DataBind()
+
+                    ' Total rows for pager (custom paging)
+                    Dim total As Integer = 0
+                    If pTotal.Value IsNot Nothing AndAlso pTotal.Value IsNot DBNull.Value Then
+                        total = Convert.ToInt32(pTotal.Value)
+                    End If
+                    gvJobs.VirtualItemCount = total
+                    gvJobs.PageIndex = pageIndex - 1
+
+                    ' Show count
+                    lblTotal.Text = String.Format("Total rows: {0:N0}", total)
+                End Using
+            End Using
 
         Catch ex As Exception
-            ErrorMsg.Visible = True
-            ErrorMsg.Text = ""
-            ErrorMsg.Text = ex.Message
+            lblError.Text = "Unable to load jobs. " & ex.Message
+            lblError.Visible = True
+            gvJobs.DataSource = Nothing
+            gvJobs.DataBind()
+            gvJobs.VirtualItemCount = 0
+            lblTotal.Text = ""
         End Try
-    End Sub
-
-    Protected Sub btnEditEntry_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Dim button As ASPxButton = TryCast(sender, ASPxButton)
-        Dim container As GridViewDataRowTemplateContainer = TryCast(button.NamingContainer, GridViewDataRowTemplateContainer)
-        Dim roomName As String = DataBinder.Eval(container.DataItem, "jobid").ToString()
-        If Trim(roomName) <> "" Then
-            Response.Redirect("JobEntry.aspx?docno=" & Trim(roomName) & "&MMModuleid=" & Trim(Request.QueryString("MMModuleid")) & "&mainid=" & Trim(Request.QueryString("mainid")) & "&subid=" & Trim(Request.QueryString("subid")) & "")
-        End If
-    End Sub
-
-    Protected Sub btnSubmit_Click(sender As Object, e As System.EventArgs) Handles btnSubmit.Click
-        GridViewLST.DataBind()
-    End Sub
-
-    Protected Sub btnAddGP_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        Response.Redirect("JobEntry.aspx")
-    End Sub
-
-    Private Sub GridChkbox()
-        Dim filter As String = True
-        Dim headerFilterMode As GridHeaderFilterMode = If(filter, GridHeaderFilterMode.CheckedList, GridHeaderFilterMode.List)
-        For Each column As GridViewDataColumn In GridViewLST.Columns
-            column.SettingsHeaderFilter.Mode = headerFilterMode
-        Next column
     End Sub
 
 End Class
