@@ -86,9 +86,9 @@
                             DataFormatString="{0:dd/MM/yyyy HH:mm}" HtmlEncode="False" />
                         <asp:BoundField DataField="startdate" HeaderText="Date" 
                             DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="False" />
-                        <asp:BoundField DataField="assignto" HeaderText="Assign To" />
-                        <asp:BoundField DataField="assigntographics" HeaderText="Assign To Graphics" />
-                        <asp:BoundField DataField="assigntoprepress" HeaderText="Assign To Prepress" />
+                        <asp:BoundField DataField="assignedto" HeaderText="Assign To" />
+                        <asp:BoundField DataField="assignedto_appformgraphic" HeaderText="Assign To Graphics" />
+                        <asp:BoundField DataField="assignedto_prepress" HeaderText="Assign To Prepress" />
                         <asp:BoundField DataField="status" HeaderText="Status" />
                     </Columns>
                 </asp:GridView>
