@@ -72,7 +72,7 @@
                               PagerSettings-Mode="Numeric"
                               PagerStyle-CssClass="text-right">
 
-                    <!-- Important for custom paging: we set VirtualItemCount in code-behind -->
+                    
                     <Columns>
                         <asp:BoundField DataField="jobid" HeaderText="Job ID" />
                         <asp:BoundField DataField="jobname" HeaderText="Job Name" />
